@@ -13,6 +13,7 @@ class CustomButton extends StatelessWidget {
     this.marginVertical = 0,
     this.marginHorizontal = 0,
     this.fillColor = AppColors.primary,
+    this.invisibalColor = AppColors.green3,
     this.textColor = AppColors.white,
     this.isBorder = false,
     this.fontSize,
@@ -24,6 +25,7 @@ class CustomButton extends StatelessWidget {
   final double height;
   final double? width;
   final Color? fillColor;
+  final Color invisibalColor;
   final Color textColor;
   final VoidCallback onTap;
   final String title;

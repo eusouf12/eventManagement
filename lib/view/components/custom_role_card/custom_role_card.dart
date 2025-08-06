@@ -8,12 +8,14 @@ class CustomRoleCard extends StatelessWidget {
   final Widget img;
   final String title;
   final String subtitle;
+  final bool isSelected;
 
   const CustomRoleCard({
     super.key,
     required this.img,
     required this.title,
-    required this.subtitle
+    required this.subtitle,
+    this.isSelected = false,
   });
 
   @override
@@ -23,7 +25,7 @@ class CustomRoleCard extends StatelessWidget {
       width: 167,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: AppColors.white,
+          color: isSelected ? AppColors.green_01 : AppColors.white,
       ),
       child: Padding(
         padding: EdgeInsets.only(top: 11.05,left: 3,right: 3),
@@ -35,12 +37,13 @@ class CustomRoleCard extends StatelessWidget {
               text: title,
               fontWeight: FontWeight.w600,
               fontSize: 16,
+              color: isSelected ? AppColors.white : AppColors.black,
             ),
             CustomText(
               text: subtitle,
               maxLines: 4,
               fontSize: 11,
-              color: AppColors.grey,
+              color: isSelected ? AppColors.white : AppColors.grey,
             )
           ],
         ),
