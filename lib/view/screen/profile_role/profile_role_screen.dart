@@ -14,7 +14,7 @@ class ProfileRoleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomGradient(
       child: Scaffold(
-        //new work
+        appBar: AppBar(title: Text("Eusouf"),),
         backgroundColor: Colors.transparent,
         body: Padding(
           padding: EdgeInsets.only(top: 130),
