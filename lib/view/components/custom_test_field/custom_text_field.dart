@@ -38,6 +38,9 @@ class CustomTextField extends StatefulWidget {
     this.weight = 385,
     this.fontSize = 14,
     this.fontWeight = FontWeight.w400,
+    this.prefixIconLeftPadding = 0,
+    this.prefixIconRightPadding = 0,
+    this.color = AppColors.titleTextClr,
 
   });
 
@@ -72,6 +75,10 @@ class CustomTextField extends StatefulWidget {
   final double? weight;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final double prefixIconLeftPadding;
+  final double prefixIconRightPadding;
+  final Color? color;
+
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -116,10 +123,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
               GoogleFonts.inter(
                   fontSize: widget.fontSize,
                   fontWeight: widget.fontWeight,
-                  color: AppColors.titleTextClr),
+                  color: widget.color),
           fillColor: widget.fillColor,
           filled: true,
-          prefixIcon: widget.prefixIcon,
+          prefixIcon: widget.prefixIcon != null
+              ? Padding(
+            padding: EdgeInsets.only(
+              left: widget.prefixIconLeftPadding,
+              right: widget.prefixIconRightPadding,
+            ),
+            child: widget.prefixIcon,
+          )
+              : null,
           suffixIcon: widget.isPassword
               ? GestureDetector(
             onTap: toggle,

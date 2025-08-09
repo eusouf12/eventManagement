@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:device_preview/device_preview.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +18,14 @@ void main() async{
   ));
   DependencyInjection di = DependencyInjection();
   di.dependencies();
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !const bool.fromEnvironment(
+        'dart.vm.product',
+      ),
+      builder: (context) => const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,9 +37,9 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       minTextAdapt: true,
       splitScreenMode: true,
-      designSize: const Size(375, 812),
+      designSize: const Size(393, 842),
       child: GetMaterialApp(
-        title: 'Flutter Demo',
+        title: 'Event Management',
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.white,
           appBarTheme: const AppBarTheme(

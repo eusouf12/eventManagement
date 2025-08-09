@@ -1,6 +1,4 @@
 import 'package:event_management/utils/app_colors/app_colors.dart';
-import 'package:event_management/utils/app_images/app_images.dart';
-import 'package:event_management/view/components/custom_images/custom_images.dart';
 import 'package:event_management/view/components/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
 
