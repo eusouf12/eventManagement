@@ -9,7 +9,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../utils/app_colors/app_colors.dart';
 import '../../../utils/app_icons/app_icons.dart';
-import '../../screen/profile_role/profile_role_screen.dart';
 
 class DmNavBar extends StatefulWidget {
   final int currentIndex;
@@ -47,15 +46,7 @@ class _DmNavBarState extends State<DmNavBar> {
           topLeft: Radius.circular(40.r),
           topRight: Radius.circular(40.r),
         ),
-        border: Border.all(color: AppColors.grey_03, width: .2),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            spreadRadius: 1,
-            blurRadius: 0,
-            offset: const Offset(3, 0),
-          ),
-        ],
+
       ),
       height: 85.h,
       width: MediaQuery.of(context).size.width,
