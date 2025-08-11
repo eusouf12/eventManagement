@@ -18,19 +18,19 @@ class CustomRoleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 223,
-      width: 167,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: isSelected ? AppColors.green_01 : AppColors.white,
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
+      color: isSelected ? AppColors.green_01 : AppColors.white,
+      elevation: 2,
       child: Padding(
-        padding: EdgeInsets.only(top: 11.05,left: 3,right: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 4,vertical: 20),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             img,
-            SizedBox(height: 9,),
+            const SizedBox(height: 9),
             CustomText(
               text: title,
               fontWeight: FontWeight.w600,
@@ -42,7 +42,7 @@ class CustomRoleCard extends StatelessWidget {
               maxLines: 4,
               fontSize: 11,
               color: isSelected ? AppColors.white : AppColors.grey,
-            )
+            ),
           ],
         ),
       ),

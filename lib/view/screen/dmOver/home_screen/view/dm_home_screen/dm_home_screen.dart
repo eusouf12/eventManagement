@@ -8,9 +8,7 @@ import 'package:event_management/view/components/custom_nav_bar/dm_navbar.dart';
 import 'package:event_management/view/components/custom_test_field/custom_text_field.dart';
 import 'package:event_management/view/components/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 
 class DmHomeScreen extends StatefulWidget {
   const DmHomeScreen({super.key});
@@ -113,7 +111,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
                   Expanded(
                     child: CustomTextField(
                       onTap: () {
-                        Get.toNamed(AppRoutes.hostHomeScreen);
+                        Get.toNamed(AppRoutes.dmFilter);
                       },
                       hintText: "Event Filters",
                       color: AppColors.black,
