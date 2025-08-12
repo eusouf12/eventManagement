@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 import '../../../../../../core/app_routes/app_routes.dart';
 import '../../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../../utils/app_images/app_images.dart';
-import '../../../../../components/custom_button/custom_button.dart';
 import '../../../../../components/custom_images/custom_images.dart';
 import '../../../../../components/custom_test_field/custom_text_field.dart';
 import '../../../../../components/custom_text/custom_text.dart';
@@ -44,14 +43,17 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                     child: BackButton(color: AppColors.black),
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 16,),
                 Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
                   child: Column(
                     children: [
                       // card ing
                       ClipRRect(
                         borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(10.r),
+                          top: Radius.circular(20.r),
                         ),
                         child: CustomImage(
                           imageSrc: AppImages.card,
@@ -98,64 +100,68 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                             Row(
                               children: [
                                 //joined
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 48,
-                                    width: 105,
-                                    decoration: BoxDecoration(
-                                      color: AppColors.white4,
-                                      borderRadius: BorderRadius.circular(
-                                        10,
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      height: 48,
+                                      width: 105,
+                                      decoration: BoxDecoration(
+                                        color: AppColors.white4,
+                                        borderRadius: BorderRadius.circular(
+                                          10,
+                                        ),
                                       ),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        CustomImage(
-                                          imageSrc: AppIcons.join,
-                                        ),
-                                        SizedBox(width: 5),
-                                        CustomText(
-                                          text: 'Joined',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ],
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          CustomImage(
+                                            imageSrc: AppIcons.join,
+                                          ),
+                                          SizedBox(width: 5),
+                                          CustomText(
+                                            text: 'Joined',
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                                 SizedBox(width: 25),
 
-                                GestureDetector(
-                                  onTap: () {
-                                    // Get.toNamed(AppRoutes.inviteScreen);
-                                  },
-                                  child: Container(
-                                    height: 48,
-                                    width: 104,
-                                    decoration: BoxDecoration(
-                                      color: AppColors.red_03,
-                                      borderRadius: BorderRadius.circular(
-                                        10,
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      // Get.toNamed(AppRoutes.inviteScreen);
+                                    },
+                                    child: Container(
+                                      height: 48,
+                                      width: 104,
+                                      decoration: BoxDecoration(
+                                        color: AppColors.red_03,
+                                        borderRadius: BorderRadius.circular(
+                                          10,
+                                        ),
                                       ),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        CustomImage(
-                                          imageSrc: AppIcons.invite,
-                                        ),
-                                        SizedBox(width: 5),
-                                        CustomText(
-                                          text: 'Invite',
-                                          color: AppColors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ],
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          CustomImage(
+                                            imageSrc: AppIcons.invite,
+                                          ),
+                                          SizedBox(width: 5),
+                                          CustomText(
+                                            text: 'Invite',
+                                            color: AppColors.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -175,8 +181,8 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                                     child: Center(
                                       child: CustomText(
                                         text: '18+',
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -310,7 +316,10 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                               itemCount: 4,
                               separatorBuilder: (_, __) => const SizedBox(height: 20),
                               itemBuilder: (context, index) {
-                                return CustomLiveComment();
+                                return CustomLiveComment(
+                                  title2: '01:31',
+                                  subtitle: "I've been to their previous events. The music is always top notch!",
+                                );
                               },
                             ),
 
