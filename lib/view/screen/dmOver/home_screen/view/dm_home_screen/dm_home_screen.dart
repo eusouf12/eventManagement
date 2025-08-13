@@ -83,6 +83,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Find Best Events
               CustomText(
                 text: 'Find Best Events\nNear You',
                 textAlign: TextAlign.left,
@@ -96,6 +97,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
                 height: 60,
                 weight: double.infinity,
                 fieldBorderRadius: 15,
+                fieldBorderColor: AppColors.grey1,
                 prefixIcon: Icon(Icons.search, color: AppColors.green_01),
                 prefixIconLeftPadding: 33.58,
                 prefixIconRightPadding: 10,
@@ -116,12 +118,13 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       fieldBorderRadius: 50,
-                      prefixIcon: Icon(
-                        Icons.menu_outlined,
-                        color: AppColors.black,
+                      prefixIcon: CustomImage(imageSrc:AppIcons.menu2,
+                        height: 22,
+                        width: 22,
                       ),
-                      suffixIcon: Icon(
-                        Icons.arrow_drop_down,
+                      suffixIcon: Image(image: AssetImage(AppIcons.downarraw),
+                        height: 22,
+                        width: 22,
                         color: AppColors.black,
                       ),
                       readOnly: true,
@@ -136,6 +139,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
                       color: AppColors.black,
                       hintText: "Bar & Resturent",
                       fontSize: 16,
+                      prefixIconLeftPadding: 0,        
                       fontWeight: FontWeight.w500,
                       fieldBorderRadius: 50,
                     ),
@@ -144,6 +148,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
               ),
               SizedBox(height: 19.5),
 
+            //  Find events near
               RichText(
                 text: TextSpan(
                   text: 'Find events near',
@@ -169,9 +174,10 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
               ),
               SizedBox(height: 24),
 
+              // Live Event
               Row(
                 children: [
-                  Icon(Icons.circle, size: 8.69, color: AppColors.green_01),
+                  Icon(Icons.circle, size: 8.69, color: AppColors.blue1),
                   TextButton(
                     onPressed: () {
                       Get.toNamed(AppRoutes.dmLiveScreen);
@@ -201,7 +207,8 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
                 ],
               ),
               SizedBox(height: 6),
-
+                  
+              // live location
               Expanded(
                 child: CustomImage(
                   imageSrc: AppImages.map,

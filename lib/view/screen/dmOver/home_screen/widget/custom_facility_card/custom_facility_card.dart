@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../components/custom_images/custom_images.dart';
 import '../../../../../components/custom_text/custom_text.dart';
 
 class CustomFacilityCard extends StatefulWidget {
@@ -34,7 +33,7 @@ class _CustomFacilityCardState extends State<CustomFacilityCard> {
                children: [
                  widget.preicon ?? SizedBox(),
                  SizedBox(width: 20,),
-                 CustomText(text: widget.title ?? '', fontSize: 16, fontWeight: FontWeight.w700,),
+                 CustomText(text: widget.title, fontSize: 16, fontWeight: FontWeight.w700,),
                ],
              ),
               widget.posticon?? SizedBox() ,

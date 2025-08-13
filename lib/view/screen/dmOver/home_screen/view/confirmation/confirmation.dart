@@ -1,12 +1,9 @@
 import 'package:event_management/core/app_routes/app_routes.dart';
-import 'package:event_management/utils/app_icons/app_icons.dart';
 import 'package:event_management/utils/app_images/app_images.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
-import 'package:event_management/view/components/custom_images/custom_images.dart';
 import 'package:event_management/view/components/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../components/custom_button/custom_button.dart';

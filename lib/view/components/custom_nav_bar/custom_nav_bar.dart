@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/app_colors/app_colors.dart';
-import '../../../utils/app_images/app_images.dart';
 
 
 class NavBar extends StatefulWidget {

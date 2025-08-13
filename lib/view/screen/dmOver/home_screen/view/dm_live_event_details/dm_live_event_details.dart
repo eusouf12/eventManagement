@@ -324,7 +324,7 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                             ),
 
                             SizedBox(height: 20),
-                            Container(
+                            SizedBox(
                               height: 50,
                               width: double.infinity,
                               child: Row(
