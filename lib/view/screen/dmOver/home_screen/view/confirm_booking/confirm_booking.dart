@@ -1,12 +1,11 @@
+import 'package:event_management/utils/app_icons/app_icons.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_booking%20card/custom_booking_card.dart';
-import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_live_details/custom_live_comment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../../utils/app_colors/app_colors.dart';
-import '../../../../../../utils/app_icons/app_icons.dart';
 import '../../../../../components/custom_text/custom_text.dart';
+import '../../widget/payment_method_card/payment_method_card.dart';
 
 class ConfirmBooking extends StatefulWidget {
   const ConfirmBooking({super.key});
@@ -46,13 +45,47 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                   ),
                 ),
                 SizedBox(height: 20),
+                // Column(
+                //   children: List.generate(5, (index) {
+                //     return CustomBookingCard(
+                //       subtitle: "Experience the best urban music",
+                //       title: "May 28, 2025 – 6:00 PM",
+                //     );
+                //   }
+                //   ),
+                // ),
+
                 Column(
                   children: [
-                     CustomBookingCard(
+                    // song+date+location
+                    Column(
 
-                     )
+                      children: [
+                        CustomBookingCard(
+                          subtitle: "Experience the best urban music",
+                        ),
+                        SizedBox(height: 16),
+                        CustomBookingCard(
+                          preImg: AssetImage(AppIcons.calender3),
+                          title: "May 28, 2025 – 6:00 PM",
+                          titleFontSize: 14,
+                          titleFontWeight: FontWeight.w400,
+                        ),
+                        SizedBox(height: 16),
+                        CustomBookingCard(
+                          preImg: AssetImage(AppIcons.location3),
+                          title: "Downtown LA",
+                          titleFontSize: 14,
+                          titleFontWeight: FontWeight.w400,
+                        ),
+                      ],
+                    ),
+
+
+                    SizedBox(height: 20),
+                    PaymentMethoodCard()
                   ],
-                )
+                ),
               ],
             ),
           ),

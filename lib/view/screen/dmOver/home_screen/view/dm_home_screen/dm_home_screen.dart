@@ -67,11 +67,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
                     shape: BoxShape.circle,
                     color: Color(0xFFF7FFEF),
                     boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 6,
-                        offset: Offset(0, 1),
-                      ),
+
                     ],
                   ),
                   child: CustomImage(imageSrc: AppIcons.notificartion),

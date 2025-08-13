@@ -1,5 +1,4 @@
 import 'package:event_management/utils/app_icons/app_icons.dart';
-import 'package:event_management/view/components/custom_images/custom_images.dart';
 import 'package:event_management/view/components/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../utils/app_colors/app_colors.dart';
@@ -15,9 +14,10 @@ class CustomBookingCard extends StatelessWidget {
   final FontWeight? subtitleFontWeight;
   final double? imageWidth;
   final double? imageHeight;
+  final ImageProvider? preImg;
 
   const CustomBookingCard({
-    Key? key,
+    super.key,
     this.title,
     this.subtitle,
     this.color,
@@ -28,38 +28,42 @@ class CustomBookingCard extends StatelessWidget {
     this.subtitleFontWeight,
     this.imageWidth = 36,
     this.imageHeight = 36,
-  }) : super(key: key);
+    this.preImg,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        CustomImage(
-          imageSrc: AppIcons.song2,
-          width: imageWidth,
-          height: imageHeight,
-          fit: BoxFit.cover,
-        ),
+        // Image at
+        Image(image: preImg ?? AssetImage(AppIcons.song2) , width: imageWidth, height: imageHeight, fit: BoxFit.cover),
+
         SizedBox(width: 10),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: (subtitle != null && subtitle!.isNotEmpty)
+                ? MainAxisAlignment.center
+                : MainAxisAlignment.end,
             children: [
               CustomText(
                 text: title ?? 'CityGroove Fest',
                 color: color ?? Colors.black,
                 fontSize: titleFontSize ?? 15.3,
-                fontWeight: titleFontWeight ?? FontWeight.w500,
+                fontWeight: titleFontWeight ?? FontWeight.w600,
                 right: 20,
               ),
-              CustomText(
-                text: subtitle ?? '',
-                color: subtitleColor ?? AppColors.grey_06,
-                fontSize: subtitleFontSize ?? 11.9,
-                fontWeight: subtitleFontWeight ?? FontWeight.w500,
-                maxLines: 10,
-                textAlign: TextAlign.start,
-              ),
+              if (subtitle != null &&
+                  subtitle!.isNotEmpty)
+                CustomText(
+                  text: subtitle!,
+                  color: subtitleColor ?? AppColors.grey_06,
+                  fontSize: subtitleFontSize ?? 11.9,
+                  fontWeight: subtitleFontWeight ?? FontWeight.w500,
+                  maxLines: 10,
+                  textAlign: TextAlign.start,
+                ),
             ],
           ),
         ),

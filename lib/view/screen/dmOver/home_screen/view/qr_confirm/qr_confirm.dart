@@ -1,19 +1,22 @@
+import 'package:event_management/core/app_routes/app_routes.dart';
 import 'package:event_management/utils/app_images/app_images.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
-import 'package:event_management/view/screen/dmOver/home_screen/widget/notification_card/notification_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart' show Get;
+
 import '../../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../components/custom_text/custom_text.dart';
 
-class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({super.key});
+class QrConfirm extends StatefulWidget {
+  const QrConfirm({super.key});
 
   @override
-  State<NotificationScreen> createState() => _NotificationScreenState();
+  State<QrConfirm> createState() => _QrConfirmState();
 }
 
-class _NotificationScreenState extends State<NotificationScreen> {
+class _QrConfirmState extends State<QrConfirm> {
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
@@ -26,35 +29,38 @@ class _NotificationScreenState extends State<NotificationScreen> {
             backgroundColor: Colors.transparent,
             leading: Container(
               height: 38.5.h,
-              width: 38.5.w,
+              width: 38.5.h,
               decoration: BoxDecoration(
                 color: AppColors.white,
                 shape: BoxShape.circle,
               ),
-              child: BackButton(color: AppColors.black),
+              child: BackButton(onPressed: (){
+                Get.toNamed(AppRoutes.dmHomeScreen);
+              },
+                  color: AppColors.black
+              ),
             ),
             title: CustomText(
-              text: "Notification",
+              text: "Event Check-In",
               fontSize: 16,
               fontWeight: FontWeight.w700,
               textAlign: TextAlign.center,
             ),
           ),
-
-          body: ListView.separated(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            itemCount: 4, // change as needed
-            separatorBuilder: (_, __) => const SizedBox(height: 20),
-            itemBuilder: (context, index) {
-              return NotificationCard(
-                img: AssetImage(AppImages.profile),
-                title:
-                    'Sunset Cinema announced Outdoor Movie Night this Friday ',
-                subtitle: "Free Entry + Popcorn!",
-                time: "3h",
-              );
-            },
-          ),
+           body: Center(
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image(image: AssetImage(AppImages.qucode)),
+                SizedBox(height: 45,),
+                CustomText(
+                  text: "Please show the QR to start Event",
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ],
+             ),
+           ),
         ),
       ),
     );

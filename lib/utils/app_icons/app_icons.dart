@@ -44,6 +44,10 @@
    static const String downarraw = "$basePath/downarraw.png";
    static const String song = "$basePath/song.png";
    static const String song2 = "$basePath/song2.png";
+   static const String apple = "$basePath/apple.png";
+   static const String credit = "$basePath/credit.png";
+   static const String upi2 = "$basePath/upi2.png";
+   static const String wallet = "$basePath/wallet.png";
 
 
 

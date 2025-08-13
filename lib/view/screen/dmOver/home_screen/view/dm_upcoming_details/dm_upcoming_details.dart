@@ -180,7 +180,7 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    // Get.toNamed(AppRoutes.inviteScreen);
+                                    Get.toNamed(AppRoutes.invitedScreen);
                                   },
                                   child: Container(
                                     height: 48,

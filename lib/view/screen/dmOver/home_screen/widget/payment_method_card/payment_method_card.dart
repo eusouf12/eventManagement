@@ -1,0 +1,114 @@
+import 'package:event_management/core/app_routes/app_routes.dart';
+import 'package:event_management/utils/app_colors/app_colors.dart';
+import 'package:event_management/view/components/custom_button/custom_button.dart';
+import 'package:event_management/view/components/custom_images/custom_images.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class PaymentMethoodCard extends StatefulWidget {
+  const PaymentMethoodCard({super.key});
+
+  @override
+  State<PaymentMethoodCard> createState() => _PaymentMethoodCardState();
+}
+
+class _PaymentMethoodCardState extends State<PaymentMethoodCard> {
+  final List<Map<String, dynamic>> paymentMethods = [
+    {'title': 'UPI', 'icon': 'assets/icons/upi.svg'},
+    {'title': 'Wallet', 'icon': 'assets/icons/wallet.svg'},
+    {'title': 'Credit/Debit Card', 'icon': 'assets/icons/card.svg'},
+    {
+      'title': 'Apple Pay / Google Pay',
+      'icon': 'assets/icons/apple_google.svg',
+    },
+  ];
+
+  final RxInt selectedIndex = 0.obs;
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+      () => Container(
+        decoration: BoxDecoration(
+          color:  Colors.white,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(right: 27,left: 28,top:20,bottom: 38 ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Select Payment Method",
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              ),
+              const SizedBox(height: 14),
+              ...paymentMethods.asMap().entries.map((entry) {
+                int index = entry.key;
+                var method = entry.value;
+                bool isSelected = selectedIndex.value == index;
+
+                return GestureDetector(
+                  onTap: () => selectedIndex.value = index,
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 14,
+                    ),
+                    decoration: BoxDecoration(
+                      color: isSelected ? Colors.green.shade50 : Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: isSelected ? Colors.green : Colors.grey.shade300,
+                        width: 1.2,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        CustomImage(
+                          imageSrc: method['icon'],
+                          height: 22,
+                          width: 22,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            method['title'],
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                        Icon(
+                          isSelected
+                              ? Icons.radio_button_checked
+                              : Icons.radio_button_off,
+                          color: isSelected ? Colors.green : Colors.grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+              const SizedBox(height: 28),
+              CustomButton(
+                onTap: () {
+                  Get.toNamed(AppRoutes.confarmation);
+                },
+                title: "Confirm & Pay \$21.50",
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                fillColor: AppColors.green_01,
+                height: 60,
+                borderRadius: 59,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

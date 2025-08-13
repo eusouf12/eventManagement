@@ -12,4 +12,7 @@ class AppImages {
   static const String card3 = "$basePath/card3.png";
   static const String map = "$basePath/map_dm.png";
   static const String post = "$basePath/post.jpg";
+  static const String confarmation = "$basePath/confarmation.png";
+  static const String qucode = "$basePath/qucode.png";
+  static const String h = "$basePath/h.png";
 }

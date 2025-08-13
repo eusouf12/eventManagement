@@ -38,8 +38,8 @@ class CustomTextField extends StatefulWidget {
     this.weight = 385,
     this.fontSize = 14,
     this.fontWeight = FontWeight.w400,
-    this.prefixIconLeftPadding = 0,
-    this.prefixIconRightPadding = 0,
+    this.prefixIconLeftPadding = 31,
+    this.prefixIconRightPadding = 10,
     this.color = AppColors.titleTextClr,
 
   });
