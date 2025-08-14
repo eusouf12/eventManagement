@@ -41,9 +41,10 @@ class CustomTextField extends StatefulWidget {
     this.prefixIconLeftPadding = 31,
     this.prefixIconRightPadding = 10,
     this.color = AppColors.titleTextClr,
+    this.hintPadding,
 
   });
-
+  final EdgeInsetsGeometry? hintPadding;
   final TextEditingController? textEditingController;
   final FocusNode? focusNode;
   final TextInputType keyboardType;
@@ -126,6 +127,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   color: widget.color),
           fillColor: widget.fillColor,
           filled: true,
+          contentPadding: widget.hintPadding ?? const EdgeInsets.only(left: 33),
           prefixIcon: widget.prefixIcon != null
               ? Padding(
             padding: EdgeInsets.only(

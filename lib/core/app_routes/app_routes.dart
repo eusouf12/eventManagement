@@ -1,4 +1,5 @@
 import 'package:event_management/view/screen/dmOver/favorite/view/invited_screen/invited_screen.dart';
+import 'package:event_management/view/screen/dmOver/home_screen/view/bar_resturent_screen/bar_resturent_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/confirm_booking/confirm_booking.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/confirmation/confirmation.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/dm_filter/dm_filter.dart';
@@ -37,6 +38,7 @@ class AppRoutes {
   static const String confarmation = '/confarmation';
   static const String qrConfirm = '/qrConfirm';
   static const String invitedScreen = '/invitedScreen';
+  static const String barRestaurants = '/barRestaurants';
 
 
   static List<GetPage> routes = [
@@ -58,6 +60,7 @@ class AppRoutes {
     GetPage(name: confarmation, page: () => Confirmation()),
     GetPage(name: qrConfirm, page: () => QrConfirm()),
     GetPage(name: invitedScreen, page: () => InvitedScreen()),
+    GetPage(name: barRestaurants, page: () => BarResturentScreen()),
 
 
   ];

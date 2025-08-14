@@ -22,6 +22,8 @@ class _CustomUpcomingEventCardState extends State<CustomUpcomingEventCard> {
         Get.toNamed(AppRoutes.dmUpcomingEventDetails);
       },
       child: Card(
+        color: Colors.white,
+        elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
         ),

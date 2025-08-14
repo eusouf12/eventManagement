@@ -1,9 +1,14 @@
+import 'package:event_management/utils/app_colors/app_colors.dart';
+import 'package:event_management/view/components/custom_appbar/custom_appbar.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
+import 'package:event_management/view/components/custom_text/custom_text.dart';
+import 'package:event_management/view/components/custom_button/custom_button.dart';
+import 'package:event_management/view/components/custom_test_field/custom_text_field.dart';
+import 'package:event_management/view/screen/dmOver/home_screen/view/dm_home_screen/dm_home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../utils/app_colors/app_colors.dart';
-import '../../../../../components/custom_button/custom_button.dart';
-import '../../../../../components/custom_text/custom_text.dart';
+import 'package:get/get.dart';
+import '../../../../../../utils/app_icons/app_icons.dart';
+import '../../../../../components/custom_images/custom_images.dart';
 
 class DmFilter extends StatefulWidget {
   const DmFilter({super.key});
@@ -13,449 +18,204 @@ class DmFilter extends StatefulWidget {
 }
 
 class _DmFilterState extends State<DmFilter> {
+  // Store selected filters for each category
+  Map<String, Set<String>> selectedFilters = {
+    'Event Type': {},
+    'Price Range': {},
+    'Timeline': {},
+    'Audience': {},
+    'Access Type': {},
+    'Event Features': {},
+  };
+
+  // Timeline TextField controller
+  final TextEditingController timelineController = TextEditingController();
+
+  // All filter options for each category
+  final Map<String, List<String>> filterOptions = {
+    'Event Type': [
+      'Concerts',
+      'Sports',
+      'Family-Friendly',
+      'Neighborhood Events',
+      'Most Popular',
+      'Food Festivals',
+      'Parties',
+      'Others'
+    ],
+    'Price Range': ['Free', 'Paid'],
+    'Timeline': [],
+    'Audience': ['No Age Restriction', '18+', '21+'],
+    'Access Type': ['Public', 'Private'],
+    'Event Features': [
+      'Outdoor',
+      'Indoor',
+      'wheelchair accessible',
+      'Pet Friendly',
+      'ASL Interpreter'
+    ],
+  };
+
+  Widget buildFilterChip(String category, String label) {
+    bool isSelected = selectedFilters[category]!.contains(label);
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          if (isSelected) {
+            selectedFilters[category]!.remove(label);
+          } else {
+            selectedFilters[category]!.add(label);
+          }
+        });
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: isSelected ? AppColors.green_01 : Colors.white,
+          border: Border.all(
+            color: isSelected ? AppColors.green_01 : Colors.white,
+            width: 1,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12.0),
+          child: CustomText(
+            text: label,
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            color: isSelected ? Colors.white : Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildCategory(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 34),
+          CustomText(
+            text: title,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+          const SizedBox(height: 15),
+
+          // Timeline shows TextField, others show chips
+          title == "Timeline"
+              ? CustomTextField(
+            hintText: "mm/dd/yyyy",
+            fieldBorderColor: AppColors.grey_11,
+            hintPadding: const EdgeInsets.symmetric(horizontal: 13),
+            suffixIcon: CustomImage(
+              imageSrc: AppIcons.calender4,
+              imageColor: Colors.black,
+            ),
+            textEditingController: timelineController,
+          )
+              : Wrap(
+            spacing: 11,
+            runSpacing: 11,
+            children: filterOptions[title]!
+                .map((label) => buildFilterChip(title, label))
+                .toList(),
+          ),
+
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
+  }
+
+  void applyFilters() {
+    // Save timeline input
+    if (timelineController.text.isNotEmpty) {
+      selectedFilters['Timeline'] = {timelineController.text};
+    }
+
+    // Here you can send selectedFilters to your database
+    print("Selected Filters: $selectedFilters");
+
+    // Navigate to DMHome page
+    Get.to(() => const DmHomeScreen());
+  }
+
+  void resetFilters() {
+    setState(() {
+      selectedFilters.forEach((key, value) => value.clear());
+      timelineController.clear();
+    });
+  }
+
+  int selectedIndex = -1;
+
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
       child: Scaffold(
         backgroundColor: Colors.transparent,
+        appBar:  CustomAppbar(title: "Filter Events"),
         body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AppBar(
-                          automaticallyImplyLeading: false,
-                          backgroundColor: Colors.transparent,
-                          leading: Container(
-                            height: 38.5.h,
-                            width: 38.5.h,
-                            decoration: BoxDecoration(
-                              color: AppColors.white,
-                              shape: BoxShape.circle,
-                            ),
-                            child: BackButton(color: AppColors.black),
-                          ),
-                        ),
-                        SizedBox(height: 20,),
-                        CustomText(
-                          text: 'Event Type',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 120,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Concerts',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Sports',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 160,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Family-Friendly',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Container(
-                          height: 50,
-                          width: 230,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: AppColors.white,
-                          ),
-                          child: Center(
-                            child: CustomText(
-                              text: 'Neighborhood Events',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 160,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Food Festivals',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            // this is card
-                            Container(
-                              height: 50,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Sports',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Others',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 30),
-                        Divider(color: Colors.grey, thickness: 1, height: 20),
-                        SizedBox(height: 10),
-                        CustomText(
-                          text: 'Price Range',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Free',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Paid',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 40),
-                        CustomText(
-                          text: 'Timeline',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                        Divider(color: Colors.grey, thickness: 1, height: 20),
-                        Row(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Today',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Tomorrow',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 140,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'This Weekend',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Container(
-                          height: 50,
-                          width: 130,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: AppColors.white,
-                          ),
-                          child: Center(
-                            child: CustomText(
-                              text: 'Next Week',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Divider(color: Colors.grey, thickness: 1, height: 20),
-                        CustomText(
-                          text: 'Access Type',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Today',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Tomorrow',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Divider(color: Colors.grey, thickness: 1, height: 20),
-                        CustomText(
-                          text: 'Event Features',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Outdoor',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Indoor',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 200,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'wheelchair accessible',
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'Pet Friendly',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 160,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColors.white,
-                              ),
-                              child: Center(
-                                child: CustomText(
-                                  text: 'ASL Interpreter',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Divider(color: Colors.grey, thickness: 1, height: 20),
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CustomButton(
-                                onTap: () {},
-                                title: 'Apply Filters',
-                                width: 169,
-                                height: 56,
-                                fillColor: AppColors.green_01,
-                              ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              buildCategory('Event Type'),
+              Divider(thickness: 1, color: AppColors.grey_12),
+              buildCategory('Price Range'),
+              Divider(thickness: 1, color: AppColors.grey_12),
+              buildCategory('Timeline'),
+              Divider(thickness: 1, color: AppColors.grey_12),
+              buildCategory('Audience'),
+              Divider(thickness: 1, color: AppColors.grey_12),
+              buildCategory('Access Type'),
+              Divider(thickness: 1, color: AppColors.grey_12),
+              buildCategory('Event Features'),
+              Divider(thickness: 1, color: AppColors.grey_12),
+              const SizedBox(height: 40),
 
-                              CustomButton(
-                                onTap: () {},
-                                title: 'Apply Filters',
-                                width: 169,
-                                height: 56,
-                                borderWidth: 2,
-                                borderRadius: 30,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+              // Action buttons
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Expanded(
+                      child: CustomButton(
+                        onTap: () => applyFilters(),
+                        title: 'Apply Filters',
+                        height: 56,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                        fillColor: AppColors.green_01,
+                        textColor: Colors.white,
+                        isBorder: false,
+                      ),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: CustomButton(
+                        onTap: () => resetFilters(),
+                        title: 'Reset All',
+                        height: 56,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                        fillColor: Colors.transparent,
+                        textColor: Colors.black,
+                        isBorder: true,borderWidth: 1,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:event_management/utils/app_icons/app_icons.dart';
+import 'package:event_management/view/components/custom_appbar/custom_appbar.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_live_details/custom_live_comment.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_live_details/custom_live_details.dart';
@@ -27,24 +28,12 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Scaffold(
           backgroundColor: Colors.transparent,
+          appBar:  CustomAppbar(),
           body: SingleChildScrollView(
-            child: Column(
-              children: [
-                AppBar(
-                  automaticallyImplyLeading: false,
-                  backgroundColor: Colors.transparent,
-                  leading: Container(
-                    height: 38.5.h,
-                    width: 38.5.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: BackButton(color: AppColors.black),
-                  ),
-                ),
-                SizedBox(height: 16,),
-                Card(
+            padding: EdgeInsets.symmetric(vertical: 20),
+            child: Card(
+                  color: Colors.white,
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.r),
                   ),
@@ -372,10 +361,20 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                               ),
                             ),
 
-                            // 1st card
-                            CustomLiveDetails(),
-                            // 2nd cardCl
-                            CustomLiveDetails(),
+                            SizedBox(height: 30,),
+
+
+                            Column(
+                              children: List.generate(2, (index){
+                                return Column(
+                                  children: [
+                                    CustomLiveDetails(),
+                                    if (index != 1) // count-1
+                                      Divider(color: Colors.grey.shade300, height: 1),
+                                  ],
+                                );
+                            }),
+                            ),
 
                             SizedBox(height: 188),
                           ],
@@ -384,8 +383,7 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                     ],
                   ),
                 ),
-              ],
-            ),
+
           ),
         ),
       ),

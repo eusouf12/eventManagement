@@ -134,14 +134,19 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
 
                   Expanded(
                     child: CustomTextField(
+                      onTap: (){
+                        Get.toNamed(AppRoutes.barRestaurants);
+                      },
                       height: 43,
                       weight: 159,
+                      textAlignVertical: TextAlignVertical.center,
                       color: AppColors.black,
-                      hintText: "Bar & Resturent",
+                      hintText: "Non-Events",
                       fontSize: 16,
                       prefixIconLeftPadding: 0,        
                       fontWeight: FontWeight.w500,
                       fieldBorderRadius: 50,
+                      readOnly: true,
                     ),
                   ),
                 ],
@@ -167,7 +172,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
                       ),
                     ),
                     WidgetSpan(
-                      child: Icon(Icons.mode_edit_outline_sharp, size: 16),
+                      child: CustomImage(imageSrc: AppIcons.pen3),
                     ),
                   ],
                 ),

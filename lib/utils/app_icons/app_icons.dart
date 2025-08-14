@@ -8,6 +8,7 @@
    static const String calender = "$basePath/calendar.png";
    static const String calender2 = "$basePath/calender2.png";
    static const String calender3 = "$basePath/calender3.png";
+   static const String calender4 = "$basePath/calender4.png";
    static const String clock = "$basePath/clock.png";
    static const String comment = "$basePath/comment.svg";
    static const String comments = "$basePath/comments.png";
@@ -42,6 +43,7 @@
    static const String bed = "$basePath/bed.png";
    static const String washroom = "$basePath/washroom.png";
    static const String downarraw = "$basePath/downarraw.png";
+   static const String uparraw = "$basePath/uparrow.png";
    static const String song = "$basePath/song.png";
    static const String song2 = "$basePath/song2.png";
    static const String apple = "$basePath/apple.png";
@@ -50,6 +52,7 @@
    static const String wallet = "$basePath/wallet.png";
    static const String pen3 = "$basePath/pen3.png";
    static const String menu2 = "$basePath/menu2.png";
+
 
 
 

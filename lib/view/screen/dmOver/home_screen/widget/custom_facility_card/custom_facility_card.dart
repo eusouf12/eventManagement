@@ -1,16 +1,22 @@
+import 'package:event_management/utils/app_icons/app_icons.dart';
+import 'package:event_management/view/components/custom_images/custom_images.dart';
 import 'package:flutter/material.dart';
 import '../../../../../components/custom_text/custom_text.dart';
 
 class CustomFacilityCard extends StatefulWidget {
   final String title;
+  final String description;
   final Widget? preicon;
-  final Widget? posticon;
+  final Widget? posticonUp; // custom posticon for expanded state
+  final Widget? posticonDown; // custom posticon for collapsed state
 
   const CustomFacilityCard({
     super.key,
-    this.title = "Washroom",
-     this.preicon,
-     this.posticon,
+    this.title = "",
+    this.description = "",
+    this.preicon,
+    this.posticonUp,
+    this.posticonDown,
   });
 
   @override
@@ -18,27 +24,79 @@ class CustomFacilityCard extends StatefulWidget {
 }
 
 class _CustomFacilityCardState extends State<CustomFacilityCard> {
+  bool isExpanded = false;
+
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: SizedBox(
-        height: 70,
-        width: double.infinity,
-        child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-             Row(
-               children: [
-                 widget.preicon ?? SizedBox(),
-                 SizedBox(width: 20,),
-                 CustomText(text: widget.title, fontSize: 16, fontWeight: FontWeight.w700,),
-               ],
-             ),
-              widget.posticon?? SizedBox() ,
-            ],
-          ),
+      color: Colors.white,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            isExpanded = !isExpanded;
+          });
+        },
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        focusColor: Colors.transparent,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Main Row
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      widget.preicon ?? const SizedBox(),
+                      if (widget.preicon != null) const SizedBox(width: 12),
+                      CustomText(
+                        text: widget.title,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black.withOpacity(0.8),
+                      ),
+                    ],
+                  ),
+                  //
+                  widget.posticonUp != null && widget.posticonDown != null
+                      ? (isExpanded ? widget.posticonUp! : widget.posticonDown!)
+                      : CustomImage(
+                    imageSrc: isExpanded
+                        ? AppIcons.uparraw
+                        : AppIcons.downarraw,
+                  ),
+                ],
+              ),
+            ),
+
+            // Expanded Content
+            if (isExpanded)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Divider(color: Colors.grey, height: 1),
+                  const SizedBox(height: 8),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 68,bottom: 10,top:3),
+                    child: CustomText(
+                      text: widget.description,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black.withOpacity(0.8),
+                      maxLines: 10,
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ],
+              ),
+          ],
         ),
       ),
     );

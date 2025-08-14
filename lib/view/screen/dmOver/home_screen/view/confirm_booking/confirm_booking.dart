@@ -1,6 +1,8 @@
 import 'package:event_management/utils/app_icons/app_icons.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
+import 'package:event_management/view/components/custom_images/custom_images.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_booking%20card/custom_booking_card.dart';
+import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_live_details/custom_live_comment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../utils/app_colors/app_colors.dart';
@@ -45,6 +47,7 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                   ),
                 ),
                 SizedBox(height: 20),
+
                 // Column(
                 //   children: List.generate(5, (index) {
                 //     return CustomBookingCard(
@@ -54,12 +57,10 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                 //   }
                 //   ),
                 // ),
-
                 Column(
                   children: [
                     // song+date+location
                     Column(
-
                       children: [
                         CustomBookingCard(
                           subtitle: "Experience the best urban music",
@@ -78,12 +79,131 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                           titleFontSize: 14,
                           titleFontWeight: FontWeight.w400,
                         ),
+                        //Ticket Information
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 24,
+                            bottom: 8,
+                            left: 5,
+                          ),
+                          child: Row(
+                            children: [
+                              CustomImage(imageSrc: AppIcons.ticket),
+                              SizedBox(width: 8),
+                              CustomText(
+                                text: "Ticket Information",
+                                fontSize: 13.6,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ],
+                          ),
+                        ),
+                        //Ticket InformationQuantity+Prise+Booking
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8, bottom: 8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                               padding: const EdgeInsets.only(left: 5),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    CustomText(
+                                      text: "Quantity",
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14,
+                                      color: AppColors.grey_08,
+                                    ),
+                                    Spacer(),
+                                    CustomText(
+                                      text: "1",
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                      color: AppColors.black,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 8,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(width: 8),
+                                  CustomText(
+                                    text: "Price per Ticket",
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    color: AppColors.grey_08,
+                                  ),
+                                  Spacer(),
+                                  CustomText(
+                                    text: "\$20.00",
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    color: AppColors.black,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 8,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(width: 8),
+                                  CustomText(
+                                    text: "Booking Fee",
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    color: AppColors.grey_08,
+                                  ),
+                                  Spacer(),
+                                  CustomText(
+                                    text: "\$1.50",
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    color: AppColors.black,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        //total pay
+
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 30,top: 13),
+                          child: Card(
+                            color: Colors.white,
+                            elevation: 0,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 16,bottom: 16,left: 16,right: 8),
+                              child: CustomLiveComment(
+                                isPreIcon: true,
+                                isTrue: true,
+                                title: "Price per Ticket",
+                                title2: "\$21.00",
+                                subtitle: "Includes all fees",
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14,
+                                fontWeight3: FontWeight.w400,
+                                fontSize3: 12,
+                                fontWeight2: FontWeight.w700,
+                                fontSize2: 16,
+                                color: AppColors.black,
+                                color2: AppColors.green_01,
+                                color3: AppColors.grey_10,
+
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
 
 
-                    SizedBox(height: 20),
-                    PaymentMethoodCard()
+                    PaymentMethoodCard(),
                   ],
                 ),
               ],
