@@ -54,8 +54,7 @@ class _CustomUpcomingEventCardState extends State<CustomUpcomingEventCard> {
                         fontWeight: FontWeight.w500,
                       ),
                       Container(
-                        height: 27.h,
-                        width: 73.w,
+                        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: Colors.yellow.shade100,

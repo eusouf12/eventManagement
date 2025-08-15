@@ -1,4 +1,6 @@
+import 'package:event_management/view/screen/dmOver/favorite/view/bar_restaurant_single_details_screen/bar_restaurant_single_details.dart';
 import 'package:event_management/view/screen/dmOver/favorite/view/invited_screen/invited_screen.dart';
+import 'package:event_management/view/screen/dmOver/home_screen/view/Nearby_bar_screen/Nearby_bar_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/bar_resturent_screen/bar_resturent_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/confirm_booking/confirm_booking.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/confirmation/confirmation.dart';
@@ -8,6 +10,7 @@ import 'package:event_management/view/screen/dmOver/home_screen/view/dm_live_eve
 import 'package:event_management/view/screen/dmOver/home_screen/view/dm_live_event_details/dm_live_event_details.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/dm_upcoming_details/dm_upcoming_details.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/dm_upcoming_event_screen/dm_upcoming_event_screen.dart';
+import 'package:event_management/view/screen/dmOver/home_screen/view/nearby_restaurants_screen/nearby_restaurants_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/notification_screen/notification_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/qr_confirm/qr_confirm.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/venue_facility/venue_facility.dart';
@@ -39,6 +42,9 @@ class AppRoutes {
   static const String qrConfirm = '/qrConfirm';
   static const String invitedScreen = '/invitedScreen';
   static const String barRestaurants = '/barRestaurants';
+  static const String bar = '/bar';
+  static const String restaurants = '/restaurants';
+  static const String barrestaurantsdetails = '/barrestaurantsdetails';
 
 
   static List<GetPage> routes = [
@@ -61,6 +67,9 @@ class AppRoutes {
     GetPage(name: qrConfirm, page: () => QrConfirm()),
     GetPage(name: invitedScreen, page: () => InvitedScreen()),
     GetPage(name: barRestaurants, page: () => BarResturentScreen()),
+    GetPage(name: bar, page: () => NearbyBarScreen()),
+    GetPage(name: restaurants, page: () => NearbyRestaurantsScreen()),
+    GetPage(name: barrestaurantsdetails, page: () => BarRestaurantSingleDetails()),
 
 
   ];

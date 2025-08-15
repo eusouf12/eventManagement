@@ -132,15 +132,13 @@ class _DmFilterState extends State<DmFilter> {
   }
 
   void applyFilters() {
-    // Save timeline input
     if (timelineController.text.isNotEmpty) {
       selectedFilters['Timeline'] = {timelineController.text};
     }
 
-    // Here you can send selectedFilters to your database
-    print("Selected Filters: $selectedFilters");
+    //  send selectedFilters to your database
+    // print("Selected Filters: $selectedFilters");
 
-    // Navigate to DMHome page
     Get.to(() => const DmHomeScreen());
   }
 

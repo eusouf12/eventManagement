@@ -54,8 +54,7 @@ class _CustomLiveEventCardState extends State<CustomLiveEventCard> {
                         fontWeight: FontWeight.w500,
                       ),
                       Container(
-                        height: 27.h,
-                        width: 73.w,
+                        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: AppColors.green_01,

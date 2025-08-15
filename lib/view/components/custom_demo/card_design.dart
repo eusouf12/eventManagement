@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../utils/app_colors/app_colors.dart';
 import '../../../utils/app_const/app_const.dart';
-import '../../../utils/app_images/app_images.dart';
 import '../custom_images/custom_images.dart';
 import '../custom_netwrok_image/custom_network_image.dart';
 import '../custom_text/custom_text.dart';

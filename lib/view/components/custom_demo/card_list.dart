@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../custom_button/custom_button.dart';
 import '../custom_gradient/custom_gradient.dart';
 
 class CardList extends StatelessWidget {

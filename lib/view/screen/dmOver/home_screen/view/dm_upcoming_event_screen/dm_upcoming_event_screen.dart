@@ -33,7 +33,7 @@ class _DmUpcomingEventScreenState extends State<DmUpcomingEventScreen> {
               child: BackButton(color: AppColors.black),
             ),
             title: CustomText(
-              text: "Upcoming Events",
+              text: "Upcoming & Past Events",
               fontSize: 16,
               fontWeight: FontWeight.w700,
               textAlign: TextAlign.center,

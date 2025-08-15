@@ -267,8 +267,8 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                                 Spacer(),
                                 CustomImage(
                                   imageSrc: AppIcons.clock,
-                                  height: 22.6,
-                                  width: 22.6,
+                                  height: 22,
+                                  width: 22,
                                 ),
                                 CustomText(text: '01:20 Hours', left: 5),
                                 SizedBox(width: 10),

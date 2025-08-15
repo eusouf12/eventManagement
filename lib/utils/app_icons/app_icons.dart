@@ -50,6 +50,7 @@
    static const String credit = "$basePath/credit.png";
    static const String upi2 = "$basePath/upi2.png";
    static const String wallet = "$basePath/wallet.png";
+   static const String search = "$basePath/search.png";
    static const String pen3 = "$basePath/pen3.png";
    static const String menu2 = "$basePath/menu2.png";
 

@@ -67,7 +67,7 @@ class _CustomLiveDetailsState extends State<CustomLiveDetails> {
                     CustomText(
                       text: "with Jane Cooper and 5 others",
                       fontWeight: FontWeight.w500,
-                      fontSize: 12.sp,
+                      fontSize: 12,
                       color: AppColors.grey,
                     ),
 
@@ -76,7 +76,7 @@ class _CustomLiveDetailsState extends State<CustomLiveDetails> {
                       children: [
                         CustomText(
                           text: "@alexJhon",
-                          fontSize: 12.sp,
+                          fontSize: 12,
                           color: AppColors.grey2,
                           right: 5.w,
                         ),
@@ -90,7 +90,7 @@ class _CustomLiveDetailsState extends State<CustomLiveDetails> {
                         ),
                         CustomText(
                           text: "  2h ago",
-                          fontSize: 12.sp,
+                          fontSize: 12,
                           color: AppColors.grey2,
                         ),
                       ],
