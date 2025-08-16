@@ -1,8 +1,10 @@
+import 'package:event_management/core/app_routes/app_routes.dart';
 import 'package:event_management/utils/app_images/app_images.dart';
 import 'package:event_management/view/components/custom_appbar/custom_appbar.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_bar_card/custom_bar_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class NearbyRestaurantsScreen extends StatefulWidget {
   const NearbyRestaurantsScreen({super.key});
@@ -22,6 +24,9 @@ class _NearbyRestaurantsScreenState extends State<NearbyRestaurantsScreen> {
           title: "Nearby  Resturent Location",
           fontSized: 13,
           fontWeight: FontWeight.w700,
+          onTap: (){
+            Get.toNamed(AppRoutes.barDetailsPage);
+          },
         ),
         body: SingleChildScrollView(
           child: Padding(

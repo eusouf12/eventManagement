@@ -39,16 +39,9 @@ class CustomImage extends StatefulWidget {
 }
 
 class _CustomImageState extends State<CustomImage> {
-  late Widget imageWidget;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
-
+    Widget imageWidget;
     if(widget.imageSrc.endsWith('svg')){
       imageWidget = SvgPicture.asset(
         widget.imageSrc,
@@ -71,7 +64,7 @@ class _CustomImageState extends State<CustomImage> {
       );
     }*/
 
-    if (widget.imageSrc.endsWith('png')) {
+    else if (widget.imageSrc.endsWith('png')) {
       imageWidget = Image.asset(
         fit: widget.fit,
         widget.imageSrc,
@@ -80,6 +73,8 @@ class _CustomImageState extends State<CustomImage> {
         width: widget.width,
         scale: widget.scale ?? 1,
       );
+    }else {
+      imageWidget = const SizedBox();
     }
 
     return Container(

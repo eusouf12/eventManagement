@@ -316,6 +316,7 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                             SizedBox(
                               height: 50,
                               width: double.infinity,
+                              //Write a comment
                               child: Row(
                                 children: [
                                   Container(
@@ -335,6 +336,7 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
                                       ),
                                     ),
                                   ),
+                                  //Write a comment
                                   CustomTextField(
                                     height: 45,
                                     weight: 180,

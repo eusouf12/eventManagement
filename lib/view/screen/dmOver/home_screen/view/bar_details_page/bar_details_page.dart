@@ -1,30 +1,31 @@
+import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
+import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_common_details_br_card/custom_common_details_br_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../components/custom_appbar/custom_appbar.dart';
-import '../../../../../components/custom_gradient/custom_gradient.dart';
 
-class UpdateScreen extends StatefulWidget {
-  const UpdateScreen({super.key});
+class BarDetailsPage extends StatefulWidget {
+  const BarDetailsPage({super.key});
 
   @override
-  State<UpdateScreen> createState() => _UpdateScreenState();
+  State<BarDetailsPage> createState() => _BarDetailsPageState();
 }
 
-class _UpdateScreenState extends State<UpdateScreen> {
+class _BarDetailsPageState extends State<BarDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: CustomAppbar(
-          title: "Update",
+          title: "Italiano Pucchini",
           fontSized: 13,
           fontWeight: FontWeight.w700,
         ),
 
         body: SingleChildScrollView(
           padding: EdgeInsets.only(left: 20,right: 20,top: 23,bottom: 65),
-
+          child: CustomCommonDetailsBrCard(),
         ),
       ),
     );

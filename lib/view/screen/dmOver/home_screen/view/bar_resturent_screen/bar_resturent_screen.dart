@@ -40,7 +40,7 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                 child: Custom2ndHintTextField(prefixIcon: AppIcons.search),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 45),
+                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
                 child: Row(
                   children: [
                     GestureDetector(
@@ -69,7 +69,7 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                     SizedBox(width: 10),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(AppRoutes.bar);
+                        Get.toNamed(AppRoutes.restaurants);
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -83,6 +83,30 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                           ),
                           child: CustomText(
                             text: "Restaurants",
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    GestureDetector(
+                      onTap: () {
+                        // Get.toNamed(AppRoutes.restaurants);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 12.0,
+                          ),
+                          child: CustomText(
+                            text: "Others",
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
                             color: Colors.black,
@@ -106,7 +130,7 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
 
                   // Floating container, 50px above bottom of map
                   Positioned(
-                    top: 300,
+                    top: 260,
                     left: 0,
                     right: 0,
                     child: Container(

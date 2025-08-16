@@ -18,5 +18,7 @@ class AppImages {
   static const String qucode = "$basePath/qucode.png";
   static const String h = "$basePath/h.png";
   static const String bar = "$basePath/bar.png";
+  static const String bardetails = "$basePath/bardetails.png";
   static const String  restaurant= "$basePath/restaurant.png";
+  static const String  upload= "$basePath/upload.png";
 }

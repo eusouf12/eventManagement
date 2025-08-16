@@ -82,7 +82,7 @@ class _ProfileRoleScreenState extends State<ProfileRoleScreen> {
                                 imageSrc: AppImages.object_2,
                                 height: 100,
                               ),
-                              title: 'DMOVER',
+                              title: 'Guest',
                               subtitle: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
                               isSelected: selectedIndex == 1,
                             ),

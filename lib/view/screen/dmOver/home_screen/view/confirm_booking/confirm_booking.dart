@@ -147,25 +147,7 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                                 ],
                               ),
                               SizedBox(height: 8,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SizedBox(width: 8),
-                                  CustomText(
-                                    text: "Booking Fee",
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                    color: AppColors.grey_08,
-                                  ),
-                                  Spacer(),
-                                  CustomText(
-                                    text: "\$1.50",
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14,
-                                    color: AppColors.black,
-                                  ),
-                                ],
-                              ),
+
                             ],
                           ),
                         ),

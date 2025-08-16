@@ -48,6 +48,8 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                 SizedBox(height: 20),
 
                 Card(
+                  elevation: 0,
+                  color: Colors.white,
                   child: Column(
                     children: [
                       // card ing
@@ -309,29 +311,6 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                               color: AppColors.grey_08,
                               color2: AppColors.black,
                             ),
-                            //
-                            CustomLiveComment(
-                              isPreIcon: true,
-                              isTrue: true,
-                              title: "Booking Fee",
-                              title2: "\$1.50",
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                              fontWeight2: FontWeight.w500,
-                              fontSize2: 14,
-                              color: AppColors.grey_08,
-                              color2: AppColors.black,
-                            ),
-
-
-                            // ------
-
-
-
-
-
-
-                            // ------
 
                           ],
                         ),

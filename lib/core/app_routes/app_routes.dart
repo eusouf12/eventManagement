@@ -19,8 +19,10 @@ import 'package:event_management/view/screen/dmOver/social/view/social_media/soc
 import 'package:event_management/view/screen/host/home_screen/view/host_home_screen.dart';
 import 'package:event_management/view/screen/profile_role/profile_role_screen.dart';
 import 'package:get/get.dart';
-
 import '../../view/screen/dmOver/favorite/view/favourite_screen/favourite_screen.dart';
+import '../../view/screen/dmOver/favorite/view/gellery_screen/gallery_screen.dart';
+import '../../view/screen/dmOver/favorite/view/update_screen/update_screen.dart';
+import '../../view/screen/dmOver/home_screen/view/bar_details_page/bar_details_page.dart';
 
 class AppRoutes {
   static const String profileRoleScreen = '/profileRoleScreen';
@@ -45,6 +47,10 @@ class AppRoutes {
   static const String bar = '/bar';
   static const String restaurants = '/restaurants';
   static const String barrestaurantsdetails = '/barrestaurantsdetails';
+  static const String barDetailsPage = '/barDetailsPage';
+  static const String restaurantDetailsPage = '/restaurantDetailsPage';
+  static const String galleryScreen = '/galleryScreen';
+  static const String updateScreen = '/updateScreen';
 
 
   static List<GetPage> routes = [
@@ -70,7 +76,8 @@ class AppRoutes {
     GetPage(name: bar, page: () => NearbyBarScreen()),
     GetPage(name: restaurants, page: () => NearbyRestaurantsScreen()),
     GetPage(name: barrestaurantsdetails, page: () => BarRestaurantSingleDetails()),
-
-
+    GetPage(name: barDetailsPage, page: () => BarDetailsPage()),
+    GetPage(name: galleryScreen, page: () => GalleryScreen()),
+    GetPage(name: updateScreen, page: () => UpdateScreen()),
   ];
 }
