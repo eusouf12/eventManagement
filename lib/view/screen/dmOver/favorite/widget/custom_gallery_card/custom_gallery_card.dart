@@ -15,6 +15,9 @@ class CustomGalleryCard extends StatefulWidget {
 }
 
 class _CustomGalleryCardState extends State<CustomGalleryCard> {
+  bool isLiked = false;
+  int likeCount = 24;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -51,10 +54,27 @@ class _CustomGalleryCardState extends State<CustomGalleryCard> {
                   SizedBox(height: 10.h),
                   Row(
                     children: [
-                      Icon(Icons.favorite, size: 18.r, color: AppColors.red),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isLiked = !isLiked; // Toggle like status
+                            // Increment or decrement count based on like status
+                            if (isLiked) {
+                              likeCount++; // Increase count when liked
+                            } else {
+                              likeCount--; // Decrease count when unliked
+                            }
+                          });
+                        },
+                        child: Icon(
+                          Icons.favorite,
+                          size: 18.r,
+                          color: isLiked ? AppColors.red : AppColors.grey,
+                        ),
+                      ),
                       SizedBox(width: 6.w),
                       CustomText(
-                        text: '24',
+                        text: '$likeCount',
                         fontSize: 14.sp,
                         color: AppColors.grey,
                       ),

@@ -98,7 +98,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
                 weight: double.infinity,
                 fieldBorderRadius: 15,
                 fieldBorderColor: AppColors.grey1,
-                prefixIcon: Icon(Icons.search, color: AppColors.green_01),
+                prefixIcon: Icon(Icons.search, color: AppColors.green5),
                 prefixIconLeftPadding: 33.58,
                 prefixIconRightPadding: 10,
               ),

@@ -23,6 +23,7 @@ import '../../view/screen/dmOver/favorite/view/favourite_screen/favourite_screen
 import '../../view/screen/dmOver/favorite/view/gellery_screen/gallery_screen.dart';
 import '../../view/screen/dmOver/favorite/view/update_screen/update_screen.dart';
 import '../../view/screen/dmOver/home_screen/view/bar_details_page/bar_details_page.dart';
+import '../../view/screen/dmOver/home_screen/view/createpostscreen/create_post_screen.dart';
 
 class AppRoutes {
   static const String profileRoleScreen = '/profileRoleScreen';
@@ -51,6 +52,7 @@ class AppRoutes {
   static const String restaurantDetailsPage = '/restaurantDetailsPage';
   static const String galleryScreen = '/galleryScreen';
   static const String updateScreen = '/updateScreen';
+  static const String createPostScreen = '/createPostScreen';
 
 
   static List<GetPage> routes = [
@@ -79,5 +81,6 @@ class AppRoutes {
     GetPage(name: barDetailsPage, page: () => BarDetailsPage()),
     GetPage(name: galleryScreen, page: () => GalleryScreen()),
     GetPage(name: updateScreen, page: () => UpdateScreen()),
+    GetPage(name: createPostScreen, page: () => CreatePostScreen()),
   ];
 }

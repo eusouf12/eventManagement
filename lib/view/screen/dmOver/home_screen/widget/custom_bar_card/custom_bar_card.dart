@@ -1,59 +1,68 @@
 import 'package:event_management/utils/app_colors/app_colors.dart';
-import 'package:event_management/utils/app_images/app_images.dart';
-import 'package:event_management/view/components/custom_images/custom_images.dart';
+import 'package:event_management/utils/app_const/app_const.dart';
 import 'package:event_management/view/components/custom_text/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class CustomBarCard extends StatelessWidget {
+import '../../../../../components/custom_netwrok_image/custom_network_image.dart';
+
+class CustomBarCard extends StatefulWidget {
   final String? img;
   final String? imgName;
   final String? title;
-  final double? distance;
+  final double distance;
+  final bool isFavorite;
   final VoidCallback? onViewDetails;
-  final VoidCallback? onFavoriteTap;
   final VoidCallback? onShareTap;
+  final VoidCallback? onFavoriteTap;
 
   const CustomBarCard({
     super.key,
     this.img,
     this.imgName,
     this.title,
-    this.distance,
+    this.distance = 0.0,
+    this.isFavorite = false,
     this.onViewDetails,
-    this.onFavoriteTap,
     this.onShareTap,
+    this.onFavoriteTap,
   });
+
+  @override
+  State<CustomBarCard> createState() => _CustomBarCardState();
+}
+
+class _CustomBarCardState extends State<CustomBarCard> {
+  late bool isFavorite;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavorite = widget.isFavorite;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.green_01,
+      color: widget.distance <= 1 ? AppColors.green_01 : AppColors.grey,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Padding(
-        padding:  EdgeInsets.only(left: 10, right: 10, bottom: 10, top: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
+              clipBehavior: Clip.none,
               children: [
-                Padding(
-                  padding:  EdgeInsets.only(top: 8),
-                  child: CustomImage(imageSrc:img ??AppImages.bar,
-                    width: double.infinity,
-                    height: 120,
-                    boxFit: BoxFit.fill,
-
-                  ),// CustomNetworkImage(
-                  //   imageUrl: img??AppImages.bar,
-                  //   height: 130,
-                  //   width: double.infinity,
-                  //   borderRadius: BorderRadius.circular(20),
-                  // ),
+                CustomNetworkImage(
+                  imageUrl: widget.img ?? AppConstants.bar1,
+                  height: 130,
+                  width: double.infinity,
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 // category
                 Positioned(
-                  top: 2,
-                  left: 0,
+                  top: 0,
+                  left: 1,
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     decoration: BoxDecoration(
@@ -61,7 +70,7 @@ class CustomBarCard extends StatelessWidget {
                       color: AppColors.white,
                     ),
                     child: CustomText(
-                      text: imgName ?? "Bar",
+                      text: widget.imgName ?? "Bar",
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),
@@ -72,7 +81,14 @@ class CustomBarCard extends StatelessWidget {
                   right: 10,
                   top: 14,
                   child: GestureDetector(
-                    onTap: onFavoriteTap,
+                    onTap: () {
+                      setState(() {
+                        isFavorite = !isFavorite;
+                      });
+                      if (widget.onFavoriteTap != null) {
+                        widget.onFavoriteTap!();
+                      }
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
@@ -82,7 +98,9 @@ class CustomBarCard extends StatelessWidget {
                       child: Icon(
                         Icons.favorite,
                         size: 20,
-                        color: AppColors.grey_13,
+                        color: isFavorite
+                            ? AppColors.green_01
+                            : AppColors.grey_13,
                       ),
                     ),
                   ),
@@ -92,7 +110,7 @@ class CustomBarCard extends StatelessWidget {
                   right: 10,
                   bottom: 14,
                   child: GestureDetector(
-                    onTap: onShareTap,
+                    onTap: widget.onShareTap,
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
@@ -107,7 +125,7 @@ class CustomBarCard extends StatelessWidget {
             ),
             // title
             CustomText(
-              text: title ??"Italiano by Pucchini",
+              text: widget.title ?? '',
               fontSize: 13,
               fontWeight: FontWeight.w700,
               color: AppColors.white,
@@ -120,7 +138,7 @@ class CustomBarCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                  text: distance?.toString() ?? "1.3",
+                  text: widget.distance.toString(),
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                   color: AppColors.grey_14,
@@ -136,7 +154,7 @@ class CustomBarCard extends StatelessWidget {
             ),
             // View Details
             GestureDetector(
-              onTap: onViewDetails,
+              onTap: widget.onViewDetails,
               behavior: HitTestBehavior.opaque,
               child: Padding(
                 padding: const EdgeInsets.only(top: 13),

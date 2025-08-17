@@ -53,6 +53,7 @@
    static const String search = "$basePath/search.png";
    static const String pen3 = "$basePath/pen3.png";
    static const String menu2 = "$basePath/menu2.png";
+   static const String star = "$basePath/star.png";
 
 
 

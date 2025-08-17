@@ -1,5 +1,6 @@
 import 'package:event_management/core/app_routes/app_routes.dart';
 import 'package:event_management/utils/app_colors/app_colors.dart';
+import 'package:event_management/utils/app_icons/app_icons.dart';
 import 'package:event_management/view/components/custom_button/custom_button.dart';
 import 'package:event_management/view/components/custom_images/custom_images.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +15,11 @@ class PaymentMethoodCard extends StatefulWidget {
 
 class _PaymentMethoodCardState extends State<PaymentMethoodCard> {
   final List<Map<String, dynamic>> paymentMethods = [
-    {'title': 'UPI', 'icon': 'assets/icons/upi.svg'},
-    {'title': 'Wallet', 'icon': 'assets/icons/wallet.svg'},
-    {'title': 'Credit/Debit Card', 'icon': 'assets/icons/card.svg'},
+    {'title': 'UPI', 'icon': AppIcons.upi2},
+    {'title': 'Wallet', 'icon': AppIcons.wallet},
+    {'title': 'Credit/Debit Card', 'icon': AppIcons.credit},
     {
-      'title': 'Apple Pay / Google Pay',
-      'icon': 'assets/icons/apple_google.svg',
-    },
+      'title': 'Apple Pay / Google Pay', 'icon': AppIcons.apple},
   ];
 
   final RxInt selectedIndex = 0.obs;
@@ -60,7 +59,7 @@ class _PaymentMethoodCardState extends State<PaymentMethoodCard> {
                       color: isSelected ? Colors.green.shade50 : Colors.white,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: isSelected ? Colors.green : Colors.grey.shade300,
+                        color: isSelected ? AppColors.green_01 : AppColors.color4,
                         width: 1.2,
                       ),
                     ),
@@ -68,8 +67,8 @@ class _PaymentMethoodCardState extends State<PaymentMethoodCard> {
                       children: [
                         CustomImage(
                           imageSrc: method['icon'],
-                          height: 22,
-                          width: 22,
+                          height: 36,
+                          width: 36,
                         ),
                         const SizedBox(width: 12),
                         Expanded(
@@ -86,7 +85,7 @@ class _PaymentMethoodCardState extends State<PaymentMethoodCard> {
                           isSelected
                               ? Icons.radio_button_checked
                               : Icons.radio_button_off,
-                          color: isSelected ? Colors.green : Colors.grey,
+                          color: isSelected ? AppColors.green_01 : Colors.grey,
                         ),
                       ],
                     ),

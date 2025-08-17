@@ -33,6 +33,9 @@ class AppConstants {
   static String profileImage = 'https://ntvb.tmsimg.com/assets/assets/866126_v9_bc.jpg';
   static String bdFlag = 'https://flagcdn.com/w320/bd.png';
   static String pkFlag = 'https://flagcdn.com/w320/pk.png';
+  static String restaurant = 'https://static.toiimg.com/thumb/msid-92381386,imgsize-51538,width-400,height-225,resizemode-72/92381386.jpg';
+  static String card1 = 'https://devabit.com/uploads/_contentImgFullWidth/cover-small-5.webp';
+  static String bar1 = "https://www.irelandbeforeyoudie.com/wp-content/uploads/2020/12/drinks-with-friendsa-1024x683.jpg";
   static String resturentImage = 'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
   static String banner = 'https://www.conwaymedicalcenter.com/wp-content/uploads/2020/12/ten-reasons-you-must-have-a-primary-care-doctor.jpg';
 }

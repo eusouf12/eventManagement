@@ -19,6 +19,16 @@ class BarResturentScreen extends StatefulWidget {
 }
 
 class _BarResturentScreenState extends State<BarResturentScreen> {
+  final FocusNode searchBox = FocusNode();
+  @override
+  void dispose() {
+    searchBox.dispose();
+    super.dispose();
+  }
+
+  void _focusSearchBox() {
+    FocusScope.of(context).requestFocus(searchBox);
+  }
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
@@ -37,7 +47,10 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                   right: 20,
                   bottom: 16,
                 ),
-                child: Custom2ndHintTextField(prefixIcon: AppIcons.search),
+                child: Custom2ndHintTextField(
+                    prefixIcon: AppIcons.search,
+                     focusNode: searchBox,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
@@ -92,9 +105,7 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                     ),
                     SizedBox(width: 10),
                     GestureDetector(
-                      onTap: () {
-                        // Get.toNamed(AppRoutes.restaurants);
-                      },
+                      onTap: _focusSearchBox,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -185,13 +196,15 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                                   child: SizedBox(
                                     width: 300,
                                     child: CustomBarCard(
-                                      onViewDetails: () {
-                                        Get.toNamed(
-                                          AppRoutes.barrestaurantsdetails,
-                                        );
+                                      onShareTap: (){
+                                        Get.toNamed(AppRoutes.favouriteScreen);
                                       },
-                                      onFavoriteTap: () {},
-                                      onShareTap: () {},
+                                      onViewDetails: (){
+                                        Get.toNamed(AppRoutes.barDetailsPage);
+                                      },
+                                      onFavoriteTap: (){
+                                        Get.toNamed(AppRoutes.favouriteScreen);
+                                      },
                                     ),
                                   ),
                                 );

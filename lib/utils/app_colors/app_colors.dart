@@ -26,7 +26,10 @@ class AppColors {
   static const Color green = Color(0xff008000);
   static const Color green_01 = Color(0xff034B3B);
   static const Color green_02 = Color(0xffC6F3AE);
+  static const Color green_06 = Color(0xffF0FCE9);
+  static const Color green_07 = Color(0xff96C9B8);
   static const Color green3 = Color(0xff7EA89F);
+
 
   static const Color dark = Color(0x9A91914D);
   static const Color black_07 = Color(0xff8891aa);
@@ -62,6 +65,7 @@ class AppColors {
   static const Color grey_12 = Color(0xffC2C2C2);
   static const Color grey_13 = Color(0xffA1A1A1);
   static const Color grey_14 = Color(0xffD2D2D2);
+  static const Color grey_15 = Color(0xffbac61656C);
 
   static const Color white3 = Color(0xffC2EDE4);
   static const Color white4 = Color(0xffE2E5EA);
@@ -69,12 +73,16 @@ class AppColors {
   static const Color brown2 = Color(0xff854D0E);
   static const Color green4 = Color(0xff94A5A1);
   static const Color color3 = Color(0xffAAF5E4);
- 
+  static const Color color4 = Color(0xff96C9B8);
+  static const Color color5 = Color(0xffE1FFF8);
+
   static const Color blue1 = Color(0xFF53CCB1);
   static const Color blue2 = Color(0xFF4CAF50);
   static const Color blue3 = Color(0xFFACEBB8);
   static const Color orange = Color(0xFFFF724D);
   static const Color blue4 = Color(0xFFE7F1E7);
+  static const Color green5 = Color(0xFF4CAF50);
+  static const Color green6 = Color(0xFF28CA5E);
 
 
 

@@ -21,6 +21,7 @@ class Custom2ndHintTextField extends StatelessWidget {
   final double borderRadius;
   final Color borderColor;
   final EdgeInsetsGeometry contentPadding;
+  final FocusNode? focusNode;
 
   const Custom2ndHintTextField({
     super.key,
@@ -28,6 +29,7 @@ class Custom2ndHintTextField extends StatelessWidget {
     this.firstHintColor = Colors.black,
     this.firstHintSize = 16,
     this.firstHintWeight = FontWeight.w500,
+
 
     this.secondHint = "Italiano by pucchini",
     this.secondHintColor = AppColors.grey,
@@ -45,11 +47,13 @@ class Custom2ndHintTextField extends StatelessWidget {
       horizontal: 24,
       vertical: 18,
     ),
+    this.focusNode,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      focusNode: focusNode,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),

@@ -123,7 +123,7 @@ class CustomCommonDetailsBrCard extends StatelessWidget {
                 const SizedBox(width: 16),
                 GestureDetector(
                   onTap: (){
-                    Get.toNamed(AppRoutes.galleryScreen);
+                    Get.toNamed(AppRoutes.updateScreen);
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 20,vertical: 18),

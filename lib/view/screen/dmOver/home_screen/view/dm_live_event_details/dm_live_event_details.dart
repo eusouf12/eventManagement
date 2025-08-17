@@ -24,369 +24,359 @@ class _DmLiveEventDetailsState extends State<DmLiveEventDetails> {
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar:  CustomAppbar(),
-          body: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(vertical: 20),
-            child: Card(
-                  color: Colors.white,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.r),
-                  ),
-                  child: Column(
-                    children: [
-                      // card ing
-                      ClipRRect(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(20.r),
-                        ),
-                        child: CustomImage(
-                          imageSrc: AppImages.card,
-                          fit: BoxFit.cover,
-                          height: 150.h,
-                          width: double.infinity,
-                        ),
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 14.5,vertical: 13),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                CustomText(
-                                  text: 'Live Jazz Night',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  bottom: 4,
-                                ),
-                              ],
-                            ),
-
-                            CustomText(
-                              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut laboore at dolore magna aliqua',
-                              maxLines: 3,
-                              textAlign: TextAlign.start,
-                              bottom: 8,
-                            ),
-                            // public group
-                            Row(
-                              children: [
-                                CustomText(text: 'Public Group',fontSize: 14,),
-                                SizedBox(width: 40),
-                                CustomImage(imageSrc: AppIcons.users),
-                                CustomText(text: 'Public Group',fontSize: 14,left: 5,),
-                              ],
-                            ),
-                            SizedBox(height: 11.03),
-                            // joined+Invited+18+
-                            Row(
-                              children: [
-                                //joined
-                                Expanded(
-                                  child: GestureDetector(
-                                    onTap: () {},
-                                    child: Container(
-                                      height: 48,
-                                      width: 105,
-                                      decoration: BoxDecoration(
-                                        color: AppColors.white4,
-                                        borderRadius: BorderRadius.circular(
-                                          10,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          CustomImage(
-                                            imageSrc: AppIcons.join,
-                                          ),
-                                          SizedBox(width: 5),
-                                          CustomText(
-                                            text: 'Joined',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 25),
-
-                                Expanded(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      // Get.toNamed(AppRoutes.inviteScreen);
-                                    },
-                                    child: Container(
-                                      height: 48,
-                                      width: 104,
-                                      decoration: BoxDecoration(
-                                        color: AppColors.red_03,
-                                        borderRadius: BorderRadius.circular(
-                                          10,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          CustomImage(
-                                            imageSrc: AppIcons.invite,
-                                          ),
-                                          SizedBox(width: 5),
-                                          CustomText(
-                                            text: 'Invite',
-                                            color: AppColors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
-                                SizedBox(width: 25),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 48,
-                                    width: 62,
-                                    decoration: BoxDecoration(
-                                      color: AppColors.white4,
-                                      borderRadius: BorderRadius.circular(
-                                        10,
-                                      ),
-                                    ),
-                                    child: Center(
-                                      child: CustomText(
-                                        text: '18+',
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 13),
-
-                            //Venue
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed(AppRoutes.venueFacility);
-                              },
-                              child: Container(
-                                height: 48,
-                                width: 121,
-                                decoration: BoxDecoration(
-                                  color: AppColors.white4,
-                                  borderRadius: BorderRadius.circular(
-                                    10,
-                                  ),
-                                ),
-                                 alignment: Alignment.center,
-                                  child: CustomText(
-                                      text: 'Venue Facility',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-
-                              ),
-                            ),
-
-
-
-
-                            SizedBox(height: 14.4),
-                            Divider(thickness: 1,color: AppColors.green_01,),
-                            SizedBox(height: 16),
-                            // write something
-
-                            Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              children: [
-                                CircleAvatar(
-                                  radius: 20, // Adjust size
-                                  backgroundImage: AssetImage(
-                                    'assets/images/img.jpg',
-                                  ),
-                                ),
-                                // CustomFormCard(title: '', controller: TextEditingController()),
-                               SizedBox(width: 5,),
-                                Expanded(
-                                  child: CustomTextField(
-                                    onTap: () {
-                                      // Get.toNamed(AppRoutes.createPostScreen,);
-                                    },
-                                    hintText: 'Write Something...',
-                                    height: 28,
-                                    fontSize: 12,
-                                    color: Colors.black,
-                                    fillColor: Colors.transparent,
-                                    fieldBorderColor: Colors.black,
-                                    readOnly: true,
-                                    fieldBorderRadius: 15,
-
-                                  ),
-                                ),
-                                SizedBox(width: 22,),
-                                InkWell(
-                                  onTap: () {
-                                    // Get.toNamed(AppRoutes.createPostScreen);
-                                  },
-                                  child: CustomImage(
-                                    imageSrc: AppIcons.vector,
-
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            SizedBox(height: 39.21),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CustomImage(imageSrc: AppIcons.live),
-                                SizedBox(width: 5),
-                                CustomText(
-                                  text: 'Live Comments',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                Spacer(),
-                                CustomImage(
-                                  imageSrc: AppIcons.clock,
-                                  height: 22,
-                                  width: 22,
-                                ),
-                                CustomText(text: '01:20 Hours', left: 5),
-                                SizedBox(width: 10),
-                                Container(
-                                  height: 37.83,
-                                  width: 37.83,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white, // Optional background color
-                                    border: Border.all(
-                                      color: AppColors.green, // Border color
-                                      width: 4, // Border width
-                                    ),
-                                    borderRadius: BorderRadius.circular(
-                                      30,
-                                    ), // Optional rounded corners
-                                  ),
-                                  child: Center(
-                                    child: CustomText(
-                                      text: 'Good',
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10.09),
-                            Divider(thickness: 1, color: AppColors.black),
-
-                            ListView.separated(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              padding: const EdgeInsets.symmetric(vertical: 20),
-                              itemCount: 4,
-                              separatorBuilder: (_, __) => const SizedBox(height: 20),
-                              itemBuilder: (context, index) {
-                                return CustomLiveComment(
-                                  title2: '01:31',
-                                  subtitle: "I've been to their previous events. The music is always top notch!",
-                                );
-                              },
-                            ),
-
-                            SizedBox(height: 20),
-                            SizedBox(
-                              height: 50,
-                              width: double.infinity,
-                              //Write a comment
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 60,
-                                    width: 60,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          AppImages.profile,
-                                        ), // Replace with your image path
-                                        fit: BoxFit.cover,
-                                      ),
-                                      border: Border.all(
-                                        color: AppColors.white, // You can use AppColors
-                                        width: 2,
-                                      ),
-                                    ),
-                                  ),
-                                  //Write a comment
-                                  CustomTextField(
-                                    height: 45,
-                                    weight: 180,
-                                    fillColor: AppColors.green4,
-                                    color: Colors.white,
-                                    hintText: 'Write a comment',
-                                    fieldBorderRadius: 15,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Stack(
-                                    children: [
-                                      Container(
-                                        height: 40,
-                                        width: 40,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(30),
-                                          color: AppColors.green_01,
-                                        ),
-                                        child: CustomImage(imageSrc: AppIcons.telegram, imageColor: Colors.white,),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-
-                            SizedBox(height: 30,),
-
-
-                            Column(
-                              children: List.generate(2, (index){
-                                return Column(
-                                  children: [
-                                    CustomLiveDetails(),
-                                    if (index != 1) // count-1
-                                      Divider(color: Colors.grey.shade300, height: 1),
-                                  ],
-                                );
-                            }),
-                            ),
-
-                            SizedBox(height: 188),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar:  CustomAppbar(),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+          child: Card(
+                color: Colors.white,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
+                child: Column(
+                  children: [
+                    // card ing
+                    ClipRRect(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(20.r),
+                      ),
+                      child: CustomImage(
+                        imageSrc: AppImages.card,
+                        fit: BoxFit.cover,
+                        height: 150.h,
+                        width: double.infinity,
+                      ),
+                    ),
 
-          ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //before 1st divider
+                       Padding(
+                         padding: const EdgeInsets.all(14),
+                         child: Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                           children: [
+                             //Live Jazz Night
+                             CustomText(
+                               text: 'Live Jazz Night',
+                               fontSize: 20,
+                               fontWeight: FontWeight.w700,
+                               bottom: 4,
+                             ),
+
+                             CustomText(
+                               text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut laboore at dolore magna aliqua',
+                               maxLines: 3,
+                               textAlign: TextAlign.start,
+                               bottom: 8,
+                             ),
+                             // joined+Invited+18+
+                             Row(
+                               children: [
+                                 //joined
+                                 Expanded(
+                                   child: Container(
+                                     height: 48,
+                                     width: 105,
+                                     decoration: BoxDecoration(
+                                       color: AppColors.white4,
+                                       borderRadius: BorderRadius.circular(
+                                         10,
+                                       ),
+                                     ),
+                                     child: Row(
+                                       mainAxisAlignment:
+                                       MainAxisAlignment.center,
+                                       children: [
+                                         CustomImage(
+                                           imageSrc: AppIcons.join,
+                                         ),
+                                         SizedBox(width: 5),
+                                         CustomText(
+                                           text: 'Joined',
+                                           fontSize: 16,
+                                           fontWeight: FontWeight.w700,
+                                         ),
+                                       ],
+                                     ),
+                                   ),
+                                 ),
+                                 SizedBox(width: 25),
+
+                                 Expanded(
+                                   child: GestureDetector(
+                                     onTap: () {
+                                        Get.toNamed(AppRoutes.invitedScreen);
+                                     },
+                                     child: Container(
+                                       height: 48,
+                                       width: 104,
+                                       decoration: BoxDecoration(
+                                         color: AppColors.red_03,
+                                         borderRadius: BorderRadius.circular(
+                                           10,
+                                         ),
+                                       ),
+                                       child: Row(
+                                         mainAxisAlignment:
+                                         MainAxisAlignment.center,
+                                         children: [
+                                           CustomImage(
+                                             imageSrc: AppIcons.invite,
+                                           ),
+                                           SizedBox(width: 5),
+                                           CustomText(
+                                             text: 'Invite',
+                                             color: AppColors.white,
+                                             fontSize: 16,
+                                             fontWeight: FontWeight.w700,
+                                           ),
+                                         ],
+                                       ),
+                                     ),
+                                   ),
+                                 ),
+
+                                 SizedBox(width: 25),
+                                 Container(
+                                     height: 48,
+                                     width: 62,
+                                     decoration: BoxDecoration(
+                                       color: AppColors.white4,
+                                       borderRadius: BorderRadius.circular(
+                                         10,
+                                       ),
+                                     ),
+                                     child: Center(
+                                       child: CustomText(
+                                         text: '18+',
+                                         fontSize: 12,
+                                         fontWeight: FontWeight.w500,
+                                       ),
+                                     ),
+                                   ),
+                               ],
+                             ),
+                             SizedBox(height: 13),
+                             //Venue
+                             GestureDetector(
+                               onTap: () {
+                                 Get.toNamed(AppRoutes.venueFacility);
+                               },
+                               child: Container(
+                                 height: 48,
+                                 width: 121,
+                                 decoration: BoxDecoration(
+                                   color: AppColors.white4,
+                                   borderRadius: BorderRadius.circular(
+                                     10,
+                                   ),
+                                 ),
+                                 alignment: Alignment.center,
+                                 child: CustomText(
+                                   text: 'Venue Facility',
+                                   fontSize: 14,
+                                   fontWeight: FontWeight.w500,
+                                 ),
+
+                               ),
+                             ),
+                           ],
+                         ),
+                       ),
+                        Divider(thickness: 1,color: AppColors.green_01,),
+                        // write something
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 14,vertical: 16),
+                          child: Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                            children: [
+                              CircleAvatar(
+                                radius: 20, // Adjust size
+                                backgroundImage: AssetImage(
+                                  'assets/images/img.jpg',
+                                ),
+                              ),
+                              // CustomFormCard(title: '', controller: TextEditingController()),
+                             SizedBox(width: 5,),
+                              Expanded(
+                                child: CustomTextField(
+                                  onTap: () {
+                                    Get.toNamed(AppRoutes.createPostScreen,);
+                                  },
+                                  hintText: 'Write Something...',
+                                  height: 28,
+                                  fontSize: 12,
+                                  color: Colors.black,
+                                  fillColor: Colors.transparent,
+                                  fieldBorderColor: Colors.black,
+                                  readOnly: true,
+                                  fieldBorderRadius: 15,
+
+                                ),
+                              ),
+                              SizedBox(width: 22,),
+                              InkWell(
+                                onTap: () {
+                                  // Get.toNamed(AppRoutes.createPostScreen);
+                                },
+                                child: CustomImage(
+                                  imageSrc: AppIcons.vector,
+
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      //live comment
+                        Padding(
+                          padding: const EdgeInsets.only(top: 3,left: 14,right: 14,bottom: 19),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              CustomImage(imageSrc: AppIcons.live),
+                              CustomText(
+                                text: 'Live Comments',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                left: 5,
+                                // right: 60,
+                              ),
+                              Spacer(),
+                              //clock
+                              CustomImage(
+                                imageSrc: AppIcons.clock,
+                                height: 22,
+                                width: 22,
+                              ),
+                              CustomText(text: '01:20 Hours', left: 7,right: 15,),
+                              Container(
+                                height: 37.83,
+                                width: 37.83,
+                                decoration: BoxDecoration(
+                                  color: Colors.white, // Optional background color
+                                  border: Border.all(
+                                    color: AppColors.green6, // Border color
+                                    width: 3, // Border width
+                                  ),
+                                  borderRadius: BorderRadius.circular(
+                                    30,
+                                  ), // Optional rounded corners
+                                ),
+                                child: Center(
+                                  child: CustomText(
+                                    text: 'Good',
+                                    fontSize: 8,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(thickness: 1, color: AppColors.black),
+                       //cmt scroll
+                       Container(
+                         height: 262,
+                         padding: EdgeInsets.symmetric(horizontal: 14),
+                         child: SingleChildScrollView(
+                           child:  ListView.separated(
+                             shrinkWrap: true,
+                             physics: NeverScrollableScrollPhysics(),
+                             padding: const EdgeInsets.symmetric(vertical: 20),
+                             itemCount: 10,
+                             separatorBuilder: (_, __) => const SizedBox(height: 20),
+                             itemBuilder: (context, index) {
+                               return CustomLiveComment(
+                                 title2: '01:31',
+                                 subtitle: "I've been to their previous events. The music is always top notch!",
+                               );
+                             },
+                           ),
+                         ),
+                       ),
+                        SizedBox(height: 16),
+                        //Write a comment
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: SizedBox(
+                            height: 50,
+                            width: double.infinity,
+                            //Write a comment
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 60,
+                                  width: 60,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        AppImages.profile,
+                                      ), // Replace with your image path
+                                      fit: BoxFit.cover,
+                                    ),
+                                    border: Border.all(
+                                      color: AppColors.white, // You can use AppColors
+                                      width: 2,
+                                    ),
+                                  ),
+                                ),
+                                //Write a comment
+                                CustomTextField(
+                                  height: 45,
+                                  weight: 180,
+                                  fillColor: AppColors.green4,
+                                  color: Colors.white,
+                                  hintText: 'Write a comment',
+                                  fieldBorderRadius: 15,
+                                ),
+                                SizedBox(width: 10),
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: 40,
+                                      width: 40,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: AppColors.green_01,
+                                      ),
+                                      child: CustomImage(imageSrc: AppIcons.telegram, imageColor: Colors.white,),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 30,),
+
+
+                        Column(
+                          children: List.generate(2, (index){
+                            return Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                                  child: CustomLiveDetails(),
+                                ),
+                                if (index != 1) // count-1
+                                  Divider(color: Colors.grey.shade300, height: 1),
+                              ],
+                            );
+                        }),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
         ),
       ),
     );

@@ -23,7 +23,7 @@ class CustomRoleCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       color: isSelected ? AppColors.green_01 : AppColors.white,
-      elevation: 2,
+      elevation: 0,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4,vertical: 20),
         child: Column(

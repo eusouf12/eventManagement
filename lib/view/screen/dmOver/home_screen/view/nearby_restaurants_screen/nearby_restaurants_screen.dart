@@ -1,10 +1,10 @@
 import 'package:event_management/core/app_routes/app_routes.dart';
-import 'package:event_management/utils/app_images/app_images.dart';
 import 'package:event_management/view/components/custom_appbar/custom_appbar.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_bar_card/custom_bar_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../../../utils/app_const/app_const.dart';
 
 class NearbyRestaurantsScreen extends StatefulWidget {
   const NearbyRestaurantsScreen({super.key});
@@ -15,33 +15,47 @@ class NearbyRestaurantsScreen extends StatefulWidget {
 }
 
 class _NearbyRestaurantsScreenState extends State<NearbyRestaurantsScreen> {
+  final List<Map<String, dynamic>> restaurants = [
+    {"title": "The Codfather", "distance": 0.8, "isFavorite": false},
+    {"title": "Best Buffet", "distance": 1.7, "isFavorite": false},
+    {"title": "Sushi House", "distance": 0.5, "isFavorite": false},
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: CustomAppbar(
-          title: "Nearby  Resturent Location",
-          fontSized: 13,
-          fontWeight: FontWeight.w700,
-          onTap: (){
-            Get.toNamed(AppRoutes.barDetailsPage);
-          },
+          title: "Nearby Restaurants Location",
         ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(left: 30, right: 30, bottom: 25),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(3, (index) {
+              children: List.generate(restaurants.length, (index) {
                 return Padding(
                   padding: const EdgeInsets.only(top: 23),
                   child: CustomBarCard(
-                    title: "The Codfather",
-                    distance: 1.5,
+                    title: restaurants[index]["title"],
+                    distance: restaurants[index]["distance"],
                     imgName: "Restaurant",
-                    img: AppImages.restaurant,
+                    img: AppConstants.restaurant,
+                    isFavorite: restaurants[index]["isFavorite"],
+                    onFavoriteTap: () {
+                      setState(() {
+                        restaurants[index]["isFavorite"] =
+                        !restaurants[index]["isFavorite"];
+                      });
+                    },
+                    onShareTap: () {
+                      // Share logic
+                    },
+                    onViewDetails: () {
+                      Get.toNamed(AppRoutes.barDetailsPage);
+                    },
                   ),
                 );
               }),
