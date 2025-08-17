@@ -6,7 +6,6 @@ import '../../../../../../utils/app_images/app_images.dart';
 import '../../../../../components/custom_appbar/custom_appbar.dart';
 import '../../../../../components/custom_gradient/custom_gradient.dart';
 import '../../../../../components/custom_images/custom_images.dart';
-import '../../../../../components/custom_royel_appbar/custom_royel_appbar.dart';
 import '../../../../../components/custom_test_field/custom_text_field.dart';
 import '../../../../../components/custom_text/custom_text.dart';
 

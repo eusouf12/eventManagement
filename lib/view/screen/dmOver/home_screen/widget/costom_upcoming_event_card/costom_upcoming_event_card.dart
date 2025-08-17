@@ -40,7 +40,7 @@ class _CustomUpcomingEventCardState extends State<CustomUpcomingEventCard> {
             ),
 
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
+              padding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 14.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -53,6 +53,7 @@ class _CustomUpcomingEventCardState extends State<CustomUpcomingEventCard> {
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
+                      Spacer(),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                         alignment: Alignment.center,
@@ -91,18 +92,20 @@ class _CustomUpcomingEventCardState extends State<CustomUpcomingEventCard> {
 
                   // Attendees
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CustomImage(
-                        imageSrc: AppIcons.users,
-                        imageColor: AppColors.black2,
-                        height: 20.h,
-                        width: 20.w,
+                      CustomText(
+                        text: "Price",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.black,
                       ),
                       SizedBox(width: 10.w),
                       CustomText(
-                        text: '245 attendees',
-                        fontSize: 14,
-                        color: AppColors.black2,
+                        text: '\$20',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.black,
                       ),
                     ],
                   ),

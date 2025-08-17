@@ -1,5 +1,6 @@
 import 'package:event_management/core/app_routes/app_routes.dart';
 import 'package:event_management/utils/app_colors/app_colors.dart';
+import 'package:event_management/utils/app_const/app_const.dart';
 import 'package:event_management/utils/app_icons/app_icons.dart';
 import 'package:event_management/utils/app_images/app_images.dart';
 import 'package:event_management/view/components/custom_appbar/custom_appbar.dart';
@@ -20,6 +21,10 @@ class BarResturentScreen extends StatefulWidget {
 
 class _BarResturentScreenState extends State<BarResturentScreen> {
   final FocusNode searchBox = FocusNode();
+
+  // State variables to track selected tab
+  int selectedTab = 0; // 0 = Bars, 1 = Restaurants, 2 = Others
+
   @override
   void dispose() {
     searchBox.dispose();
@@ -29,6 +34,14 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
   void _focusSearchBox() {
     FocusScope.of(context).requestFocus(searchBox);
   }
+
+  // Method to handle tab selection
+  void _selectTab(int tabIndex) {
+    setState(() {
+      selectedTab = tabIndex;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
@@ -48,17 +61,18 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                   bottom: 16,
                 ),
                 child: Custom2ndHintTextField(
-                    prefixIcon: AppIcons.search,
-                     focusNode: searchBox,
+                  prefixIcon: AppIcons.search,
+                  focusNode: searchBox,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
                 child: Row(
                   children: [
+                    // Bars Button
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(AppRoutes.bar);
+                        _selectTab(0);
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -80,9 +94,11 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                       ),
                     ),
                     SizedBox(width: 10),
+
+                    // Restaurants Button
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(AppRoutes.restaurants);
+                        _selectTab(1);
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -104,12 +120,16 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                       ),
                     ),
                     SizedBox(width: 10),
+                    // Others Button
                     GestureDetector(
-                      onTap: _focusSearchBox,
+                      onTap: () {
+                        _selectTab(2);
+                        _focusSearchBox();
+                      },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.white,
                           borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
@@ -160,7 +180,10 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(right: 24,bottom: 9),
+                            padding: const EdgeInsets.only(
+                              right: 24,
+                              bottom: 9,
+                            ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -172,7 +195,11 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    Get.toNamed(AppRoutes.bar);
+                                    selectedTab == 0
+                                        ? Get.toNamed(AppRoutes.bar)
+                                        : selectedTab == 1
+                                        ? Get.toNamed(AppRoutes.restaurants)
+                                        : _focusSearchBox();
                                   },
                                   child: CustomText(
                                     text: "See All",
@@ -184,33 +211,86 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                               ],
                             ),
                           ),
-                          //card bar
-                          SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: List.generate(3, (index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(
-                                    right: 16.0,
-                                  ), // optional spacing
-                                  child: SizedBox(
-                                    width: 300,
-                                    child: CustomBarCard(
-                                      onShareTap: (){
-                                        Get.toNamed(AppRoutes.favouriteScreen);
-                                      },
-                                      onViewDetails: (){
-                                        Get.toNamed(AppRoutes.barDetailsPage);
-                                      },
-                                      onFavoriteTap: (){
-                                        Get.toNamed(AppRoutes.favouriteScreen);
-                                      },
+
+                          if (selectedTab == 0) ...[
+                            // Bar cards
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: List.generate(3, (index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(right: 16.0),
+                                    child: SizedBox(
+                                      width: 300,
+                                      child: CustomBarCard(
+                                        img: AppConstants.bar1,
+                                        onShareTap: () {
+                                          Get.toNamed(
+                                            AppRoutes.favouriteScreen,
+                                          );
+                                        },
+                                        onViewDetails: () {
+                                          Get.toNamed(AppRoutes.barDetailsPage);
+                                        },
+                                        onFavoriteTap: () {
+                                          Get.toNamed(
+                                            AppRoutes.favouriteScreen,
+                                          );
+                                        },
+                                      ),
                                     ),
-                                  ),
-                                );
-                              }),
+                                  );
+                                }),
+                              ),
                             ),
-                          ),
+                          ] else if (selectedTab == 1) ...[
+                            // Restaurant cards - Show when Restaurants is selected
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: List.generate(3, (index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(right: 16.0),
+                                    child: SizedBox(
+                                      width: 300,
+                                      child: CustomBarCard(
+                                        title: "Pie in the Sky",
+                                        imgName: "Restaurant",
+                                        img: AppConstants.restaurant,
+                                        onShareTap: () {
+                                          Get.toNamed(
+                                            AppRoutes.favouriteScreen,
+                                          );
+                                        },
+                                        onViewDetails: () {
+                                          Get.toNamed(AppRoutes.barDetailsPage);
+                                        },
+                                        onFavoriteTap: () {
+                                          Get.toNamed(
+                                            AppRoutes.favouriteScreen,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  );
+                                }),
+                              ),
+                            ),
+                          ] else if (selectedTab == 2) ...[
+                            // Others content - Show when Others is selected
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(40.0),
+                                child: CustomText(
+                                  text: "Use search box to find other venues",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.grey,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ],
                         ],
                       ),
                     ),

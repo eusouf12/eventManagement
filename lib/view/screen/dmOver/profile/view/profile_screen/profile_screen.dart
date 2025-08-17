@@ -1,12 +1,7 @@
 import 'package:event_management/utils/app_icons/app_icons.dart';
-import 'package:event_management/view/components/custom_appbar/custom_appbar.dart';
 import 'package:event_management/view/components/custom_nav_bar/dm_navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../../../../../core/app_routes/app_routes.dart';
 import '../../../../../../utils/app_colors/app_colors.dart';
-import '../../../../../../utils/app_images/app_images.dart';
 import '../../../../../components/custom_gradient/custom_gradient.dart';
 import '../../../../../components/custom_images/custom_images.dart';
 import '../../../../../components/custom_text/custom_text.dart';

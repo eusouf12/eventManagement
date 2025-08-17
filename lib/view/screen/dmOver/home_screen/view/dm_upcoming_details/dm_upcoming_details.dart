@@ -1,3 +1,4 @@
+import 'package:event_management/view/components/custom_appbar/custom_appbar.dart';
 import 'package:event_management/view/components/custom_button/custom_button.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_live_details/custom_live_comment.dart';
@@ -22,31 +23,29 @@ class DmUpcomingDetails extends StatefulWidget {
 }
 
 class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
+  
+  int ticketCount = 1;
+  double totalPrice = 20.0;
+
+  void handleCountChange(int count, double price) {
+    setState(() {
+      ticketCount = count;
+      totalPrice = price;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: SingleChildScrollView(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: CustomAppbar(),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                AppBar(
-                  automaticallyImplyLeading: false,
-                  backgroundColor: Colors.transparent,
-                  leading: Container(
-                    height: 38.5.h,
-                    width: 38.5.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: BackButton(color: AppColors.black),
-                  ),
-                ),
-                SizedBox(height: 20),
-
+               SizedBox(height: 20),
                 Card(
                   elevation: 0,
                   color: Colors.white,
@@ -64,7 +63,7 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                           width: double.infinity,
                         ),
                       ),
-
+                  
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 14.5,
@@ -163,7 +162,7 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                                     ),
                                   ),
                                 )
-
+                  
                                 // need somthing Clock
                               ],
                             ),
@@ -179,14 +178,14 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                             SizedBox(height: 11.03),
                             // joined+Invited+18+
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 GestureDetector(
                                   onTap: () {
                                     Get.toNamed(AppRoutes.invitedScreen);
                                   },
                                   child: Container(
-                                    height: 48,
-                                    width: 104,
+                                     padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                                     decoration: BoxDecoration(
                                       color: AppColors.red_03,
                                       borderRadius: BorderRadius.circular(10),
@@ -207,15 +206,14 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                                     ),
                                   ),
                                 ),
-
-                                SizedBox(width: 25),
+                  
+                                // SizedBox(width: 25),
                                 GestureDetector(
                                   onTap: () {
                                     Get.toNamed(AppRoutes.venueFacility);
                                   },
                                   child: Container(
-                                    height: 48,
-                                    width: 121,
+                                    padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
                                     decoration: BoxDecoration(
                                       color: AppColors.white4,
                                       borderRadius: BorderRadius.circular(10),
@@ -223,18 +221,17 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                                     alignment: Alignment.center,
                                     child: CustomText(
                                       text: 'Venue Facility',
-                                      fontSize: 14,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 25),
+                                // SizedBox(width: 25),
                                 //18
                                 InkWell(
                                   onTap: () {},
                                   child: Container(
-                                    height: 48,
-                                    width: 62,
+                                    padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
                                     decoration: BoxDecoration(
                                       color: AppColors.white4,
                                       borderRadius: BorderRadius.circular(10),
@@ -251,7 +248,7 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                               ],
                             ),
                             SizedBox(height: 21),
-
+                  
                             // cityGroove fest
                             CustomLiveComment(
                               preIcon: AssetImage(AppIcons.song),
@@ -283,35 +280,39 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                               fontSize: 14,
                               color: AppColors.grey_07,
                             ),
-
+                  
                             SizedBox(height: 11),
                             Divider(thickness: 1, color: AppColors.green_01),
                             SizedBox(height: 20),
-
+                  
                             //Quantity
                             CustomLiveComment(
                               isPreIcon: true,
-                              isTrue2: true,
+                              isCount: true,
                               isTrue: true,
                               title: "Quantity",
+                              ticketPrice: 20.0,
                               fontWeight: FontWeight.w400,
                               fontSize: 14,
                               color: AppColors.grey_08,
+                              onCountChanged: handleCountChange,
                             ),
                             // Price per Ticket
                             CustomLiveComment(
                               isPreIcon: true,
                               isTrue: true,
                               title: "Price per Ticket",
-                              title2: "\$20.00",
                               fontWeight: FontWeight.w400,
                               fontSize: 14,
                               fontWeight2: FontWeight.w500,
                               fontSize2: 14,
                               color: AppColors.grey_08,
                               color2: AppColors.black,
+                              externalCount: ticketCount,
+                              externalTotalPrice: totalPrice,
+                             
                             ),
-
+                  
                           ],
                         ),
                       ),

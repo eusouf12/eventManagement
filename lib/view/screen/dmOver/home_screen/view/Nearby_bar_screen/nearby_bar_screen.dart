@@ -6,8 +6,6 @@ import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_ba
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../../utils/app_colors/app_colors.dart';
-
 class NearbyBarScreen extends StatefulWidget {
   const NearbyBarScreen({super.key});
 

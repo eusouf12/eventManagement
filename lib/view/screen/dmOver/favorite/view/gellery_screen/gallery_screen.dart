@@ -16,9 +16,8 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-  String selectedTab = 'All'; // Track selected tab
+  String selectedTab = 'All'; 
 
-  // Sample data with content types
   List<Map<String, String>> galleryItems = [
     {'type': 'Photo', 'title': 'Event Photo 1', 'image': AppImages.card},
     {'type': 'Photo', 'title': 'Event Video 1', 'image': AppImages.card},
@@ -28,7 +27,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
     {'type': 'Video', 'title': 'Event Video 3', 'image': AppImages.card},
   ];
 
-  // Filter items based on selected tab
+
   List<Map<String, String>> getFilteredItems() {
     if (selectedTab == 'All') {
       return galleryItems;
@@ -37,7 +36,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
     }
   }
 
-  // Build tab button
+
   Widget buildTabButton(String tabName, double width) {
     bool isSelected = selectedTab == tabName;
     return GestureDetector(
