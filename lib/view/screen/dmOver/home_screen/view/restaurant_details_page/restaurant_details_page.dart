@@ -4,10 +4,12 @@ import 'package:get/get.dart';
 
 import '../../../../../../core/app_routes/app_routes.dart';
 import '../../../../../../utils/app_colors/app_colors.dart';
+import '../../../../../../utils/app_const/app_const.dart';
 import '../../../../../../utils/app_images/app_images.dart';
 import '../../../../../components/custom_appbar/custom_appbar.dart';
 import '../../../../../components/custom_gradient/custom_gradient.dart';
 import '../../../../../components/custom_images/custom_images.dart';
+import '../../../../../components/custom_netwrok_image/custom_network_image.dart';
 import '../../../../../components/custom_text/custom_text.dart';
 import '../../widget/custom_text_tile_card/custom_text_tile_card.dart';
 import '../../widget/overlapping_card_count/overlapping_card_count.dart';
@@ -47,14 +49,16 @@ class _RestaurantDetailsPageState extends State<RestaurantDetailsPage> {
                   children: [
                     Stack(
                       children: [
-                        CustomImage(
-                          imageSrc: AppImages.bardetails,
-                          boxFit: BoxFit.cover,
-                          width: double.infinity,
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: CustomNetworkImage(
+                            imageUrl: AppConstants.res1, height: 310, width: double.infinity,
+                            borderRadius: BorderRadius.circular(25),
+                          ),
                         ),
                         Positioned(
-                          top: 30,
-                          left: 30,
+                          top: 17,
+                          left: 20,
                           child: Container(
                             padding: EdgeInsets.symmetric(
                               horizontal: 30,
@@ -73,8 +77,8 @@ class _RestaurantDetailsPageState extends State<RestaurantDetailsPage> {
                           ),
                         ),
                         Positioned(
-                          right: 30,
-                          bottom: 30,
+                          right: 20,
+                          bottom: 20,
                           child: Container(
                             padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(

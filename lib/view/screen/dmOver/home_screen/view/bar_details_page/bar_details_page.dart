@@ -25,7 +25,9 @@ class _BarDetailsPageState extends State<BarDetailsPage> {
 
         body: SingleChildScrollView(
           padding: EdgeInsets.only(left: 20,right: 20,top: 23,bottom: 65),
-          child: CustomCommonDetailsBrCard(),
+          child: CustomCommonDetailsBrCard(
+
+          ),
         ),
       ),
     );

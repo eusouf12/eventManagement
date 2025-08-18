@@ -54,7 +54,7 @@ class _NearbyRestaurantsScreenState extends State<NearbyRestaurantsScreen> {
                       // Share logic
                     },
                     onViewDetails: () {
-                      Get.toNamed(AppRoutes.barDetailsPage);
+                      Get.toNamed(AppRoutes.restaurantDetailsPage);
                     },
                   ),
                 );

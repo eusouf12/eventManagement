@@ -77,8 +77,8 @@ class _CustomBarCardState extends State<CustomBarCard> {
                 ),
                 // favorite icon
                 Positioned(
-                  right: 10,
-                  top: 14,
+                  right: 3,
+                  top: 3,
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
@@ -106,8 +106,8 @@ class _CustomBarCardState extends State<CustomBarCard> {
                 ),
                 // share icon
                 Positioned(
-                  right: 10,
-                  bottom: 14,
+                  right: 3,
+                  bottom: 3,
                   child: GestureDetector(
                     onTap: widget.onShareTap,
                     child: Container(

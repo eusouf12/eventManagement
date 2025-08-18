@@ -1,13 +1,12 @@
-import 'package:event_management/utils/app_icons/app_icons.dart';
+import 'package:event_management/utils/app_const/app_const.dart';
+import 'package:event_management/utils/app_images/app_images.dart';
+import 'package:event_management/view/screen/dmOver/favorite/widget/update_card/update_card.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../../utils/app_colors/app_colors.dart';
-import '../../../../../../utils/app_images/app_images.dart';
+import '../../../../../../utils/app_icons/app_icons.dart';
 import '../../../../../components/custom_appbar/custom_appbar.dart';
 import '../../../../../components/custom_gradient/custom_gradient.dart';
-import '../../../../../components/custom_images/custom_images.dart';
 import '../../../../../components/custom_test_field/custom_text_field.dart';
-import '../../../../../components/custom_text/custom_text.dart';
 
 class UpdateScreen extends StatefulWidget {
   const UpdateScreen({super.key});
@@ -17,6 +16,37 @@ class UpdateScreen extends StatefulWidget {
 }
 
 class _UpdateScreenState extends State<UpdateScreen> {
+  final List<Map<String, dynamic>> posts = [
+    {
+      "profileImage": AppImages.profile,
+      "profileName": "Alex Johnson",
+      "topicName": "Traffic",
+      "topicIcon": AppIcons.traffic,
+      "topicIconColor": Colors.red,
+      "timeAgo": "15m ago",
+      "description":
+          "Heavy traffic on Main Street due to an accident. Avoid if possible and use 5th Avenue instead.",
+      "postImage": "",
+      "location": "Main Street, 7th Avenue",
+      "likes": 24,
+      "comments": 6,
+    },
+    {
+      "profileImage": AppImages.profile,
+      "profileName": "Sarah Lee",
+      "topicName": "lost",
+      "topicIcon": AppIcons.search,
+      "topicIconColor": AppColors.green_01,
+      "timeAgo": "30m ago",
+      "description":
+          "Lost a blue backpack with laptop near the food court. If found, please contact me!",
+      "postImage": AppConstants.bag,
+      "location": "Main Street, 7th Avenue",
+      "likes": 50,
+      "comments": 12,
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
@@ -29,209 +59,53 @@ class _UpdateScreenState extends State<UpdateScreen> {
         ),
 
         body: SingleChildScrollView(
-          padding: EdgeInsets.only(left: 20,right: 20,top: 23,bottom: 65),
+          padding: EdgeInsets.only(left: 20, right: 20, top: 23),
           child: Padding(
             padding: const EdgeInsets.all(12),
             child: Column(
               children: [
-               
+                //Live Update
                 CustomTextField(
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search, color: AppColors.green_01),
                   hintText: 'Live Update',
+                  fieldBorderRadius: 41,
                 ),
-                Card(
-                  elevation: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                SizedBox(height: 10,),
+                Column(
+                  children: List.generate(2, (index) {
+                    return Column(
                       children: [
-                        Row(
-                          children: [
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 30, // Adjust size
-                                  backgroundImage: AssetImage(
-                                    'assets/images/img.jpg',
-                                  ),
-                                ),
-                                SizedBox(width: 5),
-                                Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  children: [
-                                    CustomText(text: 'Alex Johnson'),
-                                    Row(
-                                      children: [
-                                        CustomImage(
-                                          imageSrc: AppIcons.share,
-                                        ),
-                                        CustomText(text: 'traffic'),
-                                        SizedBox(width: 5),
-                                        CustomText(text: '15m ago'),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Spacer(),
-                            Icon(
-                              Icons.report_problem_outlined,
-                              color: Colors.red,
-                            ),
-                          ],
+                        UpdateCard(
+                          profileImage: posts[index]["profileImage"],
+                          profileName: posts[index]["profileName"],
+                          topicName: posts[index]["topicName"],
+                          topicIcon: posts[index]["topicIcon"],
+                          topicIconColor: posts[index]["topicIconColor"],
+                          timeAgo: posts[index]["timeAgo"],
+                          description: posts[index]["description"],
+                          postImage: posts[index]["postImage"],
+                          location: posts[index]["location"],
+                          initialLikes: posts[index]["likes"],
+                          initialComments: posts[index]["comments"],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            children: [
-                              CustomText(
-                                text:
-                                'Heavy traffic on Main Street due to an accident. Avoid if possible and use 5th Avenue instead.',
-                                maxLines: 3,
-                              ),
-                              SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.location_on_outlined,
-                                    size: 16,
-                                    color: Colors.grey,
-                                  ),
-                                  SizedBox(width: 4),
-                                  CustomText(text: 'Main Street, 7th Avenue'),
-                                ],
-                              ),
-                              SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.thumb_up,
-                                    size: 18,
-                                    color: AppColors.green_01,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  CustomText(text: '24'),
-                                  SizedBox(width: 16),
-                                  Spacer(),
-                                  Icon(
-                                    Icons.chat_bubble_outline,
-                                    size: 18,
-                                    color: AppColors.green_01,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  CustomText(text: '6'),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
+                        SizedBox(height: 29,),
                       ],
-                    ),
-                  ),
-                ),
-                Card(
-                  elevation: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 30, // Adjust size
-                                  backgroundImage: AssetImage(
-                                    'assets/images/img.jpg',
-                                  ),
-                                ),
-                                SizedBox(width: 5),
-                                Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  children: [
-                                    CustomText(text: 'Alex Johnson'),
-                                    Row(
-                                      children: [
-                                        CustomImage(
-                                         imageSrc: AppIcons.share,
-                                        ),
-                                        CustomText(text: 'traffic'),
-                                        SizedBox(width: 5),
-                                        CustomText(text: '15m ago'),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Spacer(),
-                            Icon(
-                              Icons.report_problem_outlined,
-                              color: Colors.red,
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            children: [
-                              CustomText(
-                                text:
-                                'Heavy traffic on Main Street due to an accident. Avoid if possible and use 5th Avenue instead.',
-                                maxLines: 3,
-                              ),
-                              SizedBox(height: 10),
-                              CustomImage( imageSrc: AppImages.card,),
-                              SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.location_on_outlined,
-                                    size: 16,
-                                    color: Colors.grey,
-                                  ),
-                                  SizedBox(width: 4),
-                                  CustomText(text: 'Main Street, 7th Avenue'),
-                                ],
-                              ),
-                              SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.thumb_up,
-                                    size: 18,
-                                    color: AppColors.green_01,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  CustomText(text: '24'),
-                                  SizedBox(width: 16),
-                                  Spacer(),
-                                  Icon(
-                                    Icons.chat_bubble_outline,
-                                    size: 18,
-                                    color: AppColors.green_01,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  CustomText(text: '6'),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                    );
+                  }),
                 ),
               ],
             ),
           ),
         ),
-      floatingActionButton: FloatingActionButton(onPressed: (){}, backgroundColor: AppColors.green_01, child: Icon(Icons.add,color: AppColors.white,),),
-    ));
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: AppColors.green_01,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
+          child: Icon(Icons.add, color: AppColors.white),
+        ),
+      ),
+    );
   }
 }

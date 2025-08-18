@@ -1,11 +1,12 @@
 import 'package:event_management/core/app_routes/app_routes.dart';
+import 'package:event_management/utils/app_const/app_const.dart';
+import 'package:event_management/view/components/custom_netwrok_image/custom_network_image.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/overlapping_card_count/overlapping_card_count.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../../utils/app_images/app_images.dart';
-import '../../../../../components/custom_images/custom_images.dart';
 import '../../../../../components/custom_text/custom_text.dart';
 import '../custom_text_tile_card/custom_text_tile_card.dart';
 
@@ -29,14 +30,16 @@ class CustomCommonDetailsBrCard extends StatelessWidget {
               children: [
                 Stack(
                   children: [
-                    CustomImage(
-                      imageSrc: AppImages.bardetails,
-                      boxFit: BoxFit.cover,
-                      width: double.infinity,
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: CustomNetworkImage(
+                          imageUrl: AppConstants.bar1, height: 310, width: double.infinity,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
                     ),
                     Positioned(
-                      top: 30,
-                      left: 30,
+                      top: 17,
+                      left: 20,
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 30,vertical: 2),
                         decoration: BoxDecoration(
@@ -52,8 +55,8 @@ class CustomCommonDetailsBrCard extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      right: 30,
-                      bottom: 30,
+                      right: 20,
+                      bottom: 20,
                       child: Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(

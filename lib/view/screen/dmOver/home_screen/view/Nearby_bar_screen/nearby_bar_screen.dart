@@ -10,8 +10,7 @@ class NearbyBarScreen extends StatefulWidget {
   const NearbyBarScreen({super.key});
 
   @override
-  State<NearbyBarScreen> createState() =>
-      _NearbyBarScreenState();
+  State<NearbyBarScreen> createState() => _NearbyBarScreenState();
 }
 
 class _NearbyBarScreenState extends State<NearbyBarScreen> {
@@ -48,7 +47,7 @@ class _NearbyBarScreenState extends State<NearbyBarScreen> {
                   child: CustomBarCard(
                     title: bars[index]["title"],
                     distance: bars[index]["distance"],
-                    imgName: "Restaurant",
+                    imgName: "Bar",
                     img: AppConstants.bar1,
                     isFavorite: bars[index]["isFavorite"],
                     onFavoriteTap: () {

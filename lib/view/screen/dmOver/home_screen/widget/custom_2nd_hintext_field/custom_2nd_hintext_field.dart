@@ -54,6 +54,7 @@ class Custom2ndHintTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       focusNode: focusNode,
+      cursorColor: Colors.black,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
@@ -67,6 +68,7 @@ class Custom2ndHintTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
           borderSide: BorderSide(color: borderColor),
         ),
+
         fillColor: Colors.white,
         filled: true,
         contentPadding: contentPadding,

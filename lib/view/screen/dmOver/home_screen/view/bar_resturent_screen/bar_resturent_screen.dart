@@ -22,8 +22,7 @@ class BarResturentScreen extends StatefulWidget {
 class _BarResturentScreenState extends State<BarResturentScreen> {
   final FocusNode searchBox = FocusNode();
 
-  // State variables to track selected tab
-  int selectedTab = 0; // 0 = Bars, 1 = Restaurants, 2 = Others
+  int selectedTab = 0;
 
   @override
   void dispose() {
@@ -35,12 +34,62 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
     FocusScope.of(context).requestFocus(searchBox);
   }
 
-  // Method to handle tab selection
   void _selectTab(int tabIndex) {
     setState(() {
       selectedTab = tabIndex;
     });
+    FocusScope.of(context).unfocus();
   }
+
+  Widget _buildTabButton(String text, int index) {
+    final bool isSelected = selectedTab == index;
+    return GestureDetector(
+      onTap: () => _selectTab(index),
+      child: Container(
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.green_01 : Colors.white,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12.0),
+          child: CustomText(
+            text: text,
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            color: isSelected ? Colors.white : Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildOthersButton() {
+    final bool isSelected = selectedTab == 2;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedTab = 2; // ✅ mark Others as selected
+        });
+        _focusSearchBox(); // focus search box
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.green_01 : Colors.white,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12.0),
+          child: CustomText(
+            text: "Others",
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            color: isSelected ? Colors.white : Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,103 +103,30 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
             children: [
               // search box
               Padding(
-                padding: const EdgeInsets.only(
-                  top: 24,
-                  left: 20,
-                  right: 20,
-                  bottom: 16,
-                ),
+                padding: const EdgeInsets.only(top: 24, left: 20, right: 20, bottom: 16,),
                 child: Custom2ndHintTextField(
                   prefixIcon: AppIcons.search,
+                  firstHint:  (selectedTab == 0) ?"Bar" : "Restaurant",
+                  secondHint: (selectedTab == 0) ?"Italiano by Pucchini" : "Lord of the Wings",
                   focusNode: searchBox,
                 ),
               ),
+
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
                 child: Row(
                   children: [
-                    // Bars Button
-                    GestureDetector(
-                      onTap: () {
-                        _selectTab(0);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 12.0,
-                          ),
-                          child: CustomText(
-                            text: "Bars",
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-
-                    // Restaurants Button
-                    GestureDetector(
-                      onTap: () {
-                        _selectTab(1);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 12.0,
-                          ),
-                          child: CustomText(
-                            text: "Restaurants",
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    // Others Button
-                    GestureDetector(
-                      onTap: () {
-                        _selectTab(2);
-                        _focusSearchBox();
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 12.0,
-                          ),
-                          child: CustomText(
-                            text: "Others",
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
+                    _buildTabButton("Bars", 0),
+                    const SizedBox(width: 10),
+                    _buildTabButton("Restaurants", 1),
+                    const SizedBox(width: 10),
+                    _buildOthersButton(),
                   ],
                 ),
               ),
               // map + floating container
               Stack(
-                clipBehavior: Clip.none, // allow overflow
+                clipBehavior: Clip.none,
                 children: [
                   // Map image
                   CustomImage(
@@ -159,31 +135,23 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                     boxFit: BoxFit.cover,
                   ),
 
-                  // Floating container, 50px above bottom of map
+                  // Floating container
                   Positioned(
                     top: 260,
                     left: 0,
                     right: 0,
                     child: Container(
-                      padding: const EdgeInsets.only(
-                        left: 24,
-                        top: 17,
-                        bottom: 19,
-                      ),
-                      height: 330,
+                      padding: const EdgeInsets.only(left: 20, top: 17, bottom: 19),
+                      height: 310,
                       decoration: BoxDecoration(
                         color: AppColors.blue3,
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                              right: 24,
-                              bottom: 9,
-                            ),
+                            padding: const EdgeInsets.only(right: 24, bottom: 9),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -197,9 +165,7 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                                   onTap: () {
                                     selectedTab == 0
                                         ? Get.toNamed(AppRoutes.bar)
-                                        : selectedTab == 1
-                                        ? Get.toNamed(AppRoutes.restaurants)
-                                        : _focusSearchBox();
+                                        : Get.toNamed(AppRoutes.restaurants);
                                   },
                                   child: CustomText(
                                     text: "See All",
@@ -211,44 +177,36 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                               ],
                             ),
                           ),
-
-                          if (selectedTab == 0) ...[
-                            // Bar cards
+                          // Dynamic content based on selected tab
+                          Expanded(
+                            child: selectedTab == 0
+                                ? // Bar cards
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
-                                children: List.generate(3, (index) {
+                                children: List.generate(10, (index) {
                                   return Padding(
                                     padding: const EdgeInsets.only(right: 16.0),
                                     child: SizedBox(
                                       width: 300,
                                       child: CustomBarCard(
                                         img: AppConstants.bar1,
-                                        onShareTap: () {
-                                          Get.toNamed(
-                                            AppRoutes.favouriteScreen,
-                                          );
-                                        },
-                                        onViewDetails: () {
-                                          Get.toNamed(AppRoutes.barDetailsPage);
-                                        },
-                                        onFavoriteTap: () {
-                                          Get.toNamed(
-                                            AppRoutes.favouriteScreen,
-                                          );
-                                        },
+                                        distance: 0.5,
+                                        title: "Sky High",
+                                        onShareTap: () => Get.toNamed(AppRoutes.favouriteScreen),
+                                        onViewDetails: () => Get.toNamed(AppRoutes.barDetailsPage),
+                                        onFavoriteTap: () {},
                                       ),
                                     ),
                                   );
                                 }),
                               ),
-                            ),
-                          ] else if (selectedTab == 1) ...[
-                            // Restaurant cards - Show when Restaurants is selected
+                            )
+                                : // Restaurant cards
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
-                                children: List.generate(3, (index) {
+                                children: List.generate(5, (index) {
                                   return Padding(
                                     padding: const EdgeInsets.only(right: 16.0),
                                     child: SizedBox(
@@ -257,40 +215,16 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                                         title: "Pie in the Sky",
                                         imgName: "Restaurant",
                                         img: AppConstants.restaurant,
-                                        onShareTap: () {
-                                          Get.toNamed(
-                                            AppRoutes.favouriteScreen,
-                                          );
-                                        },
-                                        onViewDetails: () {
-                                          Get.toNamed(AppRoutes.barDetailsPage);
-                                        },
-                                        onFavoriteTap: () {
-                                          Get.toNamed(
-                                            AppRoutes.favouriteScreen,
-                                          );
-                                        },
+                                        onShareTap: () => Get.toNamed(AppRoutes.favouriteScreen),
+                                        onViewDetails: () => Get.toNamed(AppRoutes.barDetailsPage),
+                                        onFavoriteTap: () => Get.toNamed(AppRoutes.favouriteScreen),
                                       ),
                                     ),
                                   );
                                 }),
                               ),
                             ),
-                          ] else if (selectedTab == 2) ...[
-                            // Others content - Show when Others is selected
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(40.0),
-                                child: CustomText(
-                                  text: "Use search box to find other venues",
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.grey,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ],
                       ),
                     ),

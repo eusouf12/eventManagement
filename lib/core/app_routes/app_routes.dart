@@ -1,4 +1,3 @@
-import 'package:event_management/view/screen/dmOver/favorite/view/bar_restaurant_single_details_screen/bar_restaurant_single_details.dart';
 import 'package:event_management/view/screen/dmOver/favorite/view/invited_screen/invited_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/Nearby_bar_screen/Nearby_bar_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/bar_resturent_screen/bar_resturent_screen.dart';
@@ -24,6 +23,7 @@ import '../../view/screen/dmOver/favorite/view/gellery_screen/gallery_screen.dar
 import '../../view/screen/dmOver/favorite/view/update_screen/update_screen.dart';
 import '../../view/screen/dmOver/home_screen/view/bar_details_page/bar_details_page.dart';
 import '../../view/screen/dmOver/home_screen/view/createpostscreen/create_post_screen.dart';
+import '../../view/screen/dmOver/home_screen/view/restaurant_details_page/restaurant_details_page.dart';
 
 class AppRoutes {
   static const String profileRoleScreen = '/profileRoleScreen';
@@ -47,9 +47,8 @@ class AppRoutes {
   static const String barRestaurants = '/barRestaurants';
   static const String bar = '/bar';
   static const String restaurants = '/restaurants';
-  static const String barrestaurantsdetails = '/barrestaurantsdetails';
-  static const String barDetailsPage = '/barDetailsPage';
   static const String restaurantDetailsPage = '/restaurantDetailsPage';
+  static const String barDetailsPage = '/barDetailsPage';
   static const String galleryScreen = '/galleryScreen';
   static const String updateScreen = '/updateScreen';
   static const String createPostScreen = '/createPostScreen';
@@ -77,7 +76,7 @@ class AppRoutes {
     GetPage(name: barRestaurants, page: () => BarResturentScreen()),
     GetPage(name: bar, page: () => NearbyBarScreen()),
     GetPage(name: restaurants, page: () => NearbyRestaurantsScreen()),
-    GetPage(name: barrestaurantsdetails, page: () => BarRestaurantSingleDetails()),
+    GetPage(name: restaurantDetailsPage, page: () => RestaurantDetailsPage()),
     GetPage(name: barDetailsPage, page: () => BarDetailsPage()),
     GetPage(name: galleryScreen, page: () => GalleryScreen()),
     GetPage(name: updateScreen, page: () => UpdateScreen()),

@@ -23,6 +23,7 @@ class AppConstants {
   static String truck = 'https://t4.ftcdn.net/jpg/00/26/80/01/360_F_26800115_YlmErNLIVZeNZXPzUc3z4GAD1gGkVABu.jpg';
   static String electrician = 'https://st.depositphotos.com/1000291/3041/i/950/depositphotos_30414567-stock-photo-adult-electrician-engineer-worker.jpg';
   static String ntrition1 = 'https://images.unsplash.com/photo-1468577760773-139c2f1c335f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+  static String bag = 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80';
 
   static const String countryPoliticalMove = 'https://images.unsplash.com/photo-1523881374236-dd34f6ac1226?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9saXRpY2FsJTIwc3RhdGVtZW50JTIwa2VueWElMjBjb3VudHJ5fGVufDB8fDB8fHww';
 
@@ -31,6 +32,7 @@ class AppConstants {
   static const String politicalMove = 'https://images.unsplash.com/photo-1569000971870-7605f9bd8734?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBvbGl0aWNhbCUyMHN0YXRlbWVudHxlbnwwfHwwfHx8MA%3D%3D';
 
   static String profileImage = 'https://ntvb.tmsimg.com/assets/assets/866126_v9_bc.jpg';
+  static String res1 = 'https://images.ctfassets.net/lm0nxqkzuy44/1xngZSGJ1pfY9oTMS0V4OH/3b6a42493b9ee46e2e8571c7b7ea9bf4/freechicken2FEATUREDIMAGE.jpg?fm=webp';
   static String bdFlag = 'https://flagcdn.com/w320/bd.png';
   static String pkFlag = 'https://flagcdn.com/w320/pk.png';
   static String restaurant = 'https://static.toiimg.com/thumb/msid-92381386,imgsize-51538,width-400,height-225,resizemode-72/92381386.jpg';

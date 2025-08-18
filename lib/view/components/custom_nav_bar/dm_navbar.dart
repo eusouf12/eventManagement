@@ -48,7 +48,7 @@ class _DmNavBarState extends State<DmNavBar> {
         ),
 
       ),
-      height: 85.h,
+      height: 70.h,
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.centerLeft,
       child: Row(

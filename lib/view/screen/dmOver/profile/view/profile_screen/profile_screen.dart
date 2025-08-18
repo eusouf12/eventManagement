@@ -1,11 +1,11 @@
 import 'package:event_management/utils/app_icons/app_icons.dart';
+import 'package:event_management/utils/app_images/app_images.dart';
 import 'package:event_management/view/components/custom_nav_bar/dm_navbar.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../components/custom_gradient/custom_gradient.dart';
 import '../../../../../components/custom_images/custom_images.dart';
 import '../../../../../components/custom_text/custom_text.dart';
-
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -15,51 +15,73 @@ class ProfileScreen extends StatelessWidget {
     return CustomGradient(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            leadingWidth: 70, // give enough width for profile image
+            leading: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: AppColors.green_01,
+                    width: 2,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: CircleAvatar(
+                    radius: 28,
+                    backgroundImage: AssetImage(AppImages.profile),
+                  ),
+                ),
+              ),
+            ),
+            title: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min, // important to avoid unbounded height
+                    children: [
+                      Text(
+                        'Awesome Event Co.',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.star, color: Colors.yellow, size: 16),
+                          SizedBox(width: 2),
+                          Text(
+                            '4.8 Host Rating',
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+
+
+
+
+          body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 147,
-                  width: 147,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.green_01, // Border color
-                      width: 4, // Border width
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: CircleAvatar(
-                      radius: 28,
-                      backgroundImage: AssetImage(
-                        'assets/images/img.jpg',
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                CustomText(
-                  text: 'Debbendu Paul Oni',
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomImage(imageSrc: AppIcons.star),
-                    SizedBox(width: 2),
-                    CustomText(
-                      text: '4.8 Host Rating',
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 13),
+
                 TextButton(
                   onPressed: () {
                     // Get.toNamed(AppRoutes.editProfileScreen);
@@ -109,9 +131,7 @@ class ProfileScreen extends StatelessWidget {
                           height: 30,
                           width: 50,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: AppColors.white,
                           ),
                         ),
