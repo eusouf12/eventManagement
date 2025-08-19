@@ -1,7 +1,7 @@
  class AppIcons {
    static const String basePath = "assets/icons";
    ///====================== SplashScreen =========================
-   static const String eye = "$basePath/home2.svg";
+   static const String eyeon = "$basePath/eyeon.png";
    static const String eyeOff = "$basePath/heart.svg";
 
    static const String bank = "$basePath/bank.png";
@@ -55,6 +55,8 @@
    static const String menu2 = "$basePath/menu2.png";
    static const String star = "$basePath/star.png";
    static const String traffic = "$basePath/traffic.png";
+   static const String completed = "$basePath/completed.png";
+   static const String gallery2 = "$basePath/gallery2.png";
 
 
 

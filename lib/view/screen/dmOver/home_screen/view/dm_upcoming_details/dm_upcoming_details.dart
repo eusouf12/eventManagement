@@ -185,7 +185,7 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                                     Get.toNamed(AppRoutes.invitedScreen);
                                   },
                                   child: Container(
-                                     padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                                     padding: EdgeInsets.symmetric(horizontal: 16.r,vertical: 12),
                                     decoration: BoxDecoration(
                                       color: AppColors.red_03,
                                       borderRadius: BorderRadius.circular(10),
@@ -206,14 +206,14 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                                     ),
                                   ),
                                 ),
-                  
+
                                 // SizedBox(width: 25),
                                 GestureDetector(
                                   onTap: () {
                                     Get.toNamed(AppRoutes.venueFacility);
                                   },
                                   child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
+                                    padding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
                                     decoration: BoxDecoration(
                                       color: AppColors.white4,
                                       borderRadius: BorderRadius.circular(10),
@@ -231,7 +231,7 @@ class _DmUpcomingDetailsState extends State<DmUpcomingDetails> {
                                 InkWell(
                                   onTap: () {},
                                   child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
+                                    padding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
                                     decoration: BoxDecoration(
                                       color: AppColors.white4,
                                       borderRadius: BorderRadius.circular(10),

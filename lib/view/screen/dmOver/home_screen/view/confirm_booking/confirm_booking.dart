@@ -1,4 +1,5 @@
 import 'package:event_management/utils/app_icons/app_icons.dart';
+import 'package:event_management/view/components/custom_appbar/custom_appbar.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
 import 'package:event_management/view/components/custom_images/custom_images.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_booking%20card/custom_booking_card.dart';
@@ -24,28 +25,13 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Scaffold(
           backgroundColor: Colors.transparent,
+          appBar: CustomAppbar(
+            title: "Confirm Booking",
+          ),
           body: SingleChildScrollView(
             child: Column(
               children: [
-                AppBar(
-                  automaticallyImplyLeading: false,
-                  backgroundColor: Colors.transparent,
-                  leading: Container(
-                    height: 38.5.h,
-                    width: 38.5.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: BackButton(color: AppColors.black),
-                  ),
-                  title: CustomText(
-                    text: " Confirm Booking",
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+
                 SizedBox(height: 20),
 
                 // Column(
@@ -100,7 +86,7 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                         ),
                         //Ticket InformationQuantity+Prise+Booking
                         Padding(
-                          padding: const EdgeInsets.only(top: 8, bottom: 8),
+                          padding: const EdgeInsets.only(top: 8, bottom: 8,right: 12),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,

@@ -20,7 +20,7 @@ class CustomGradient extends StatelessWidget {
        width: double.infinity,
        decoration: BoxDecoration(
          image: DecorationImage(
-           image: AssetImage(AppImages.h),
+           image: AssetImage(AppImages.backG),
            fit: BoxFit.cover, // makes it fill entire screen
          ),
        ),

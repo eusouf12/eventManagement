@@ -2,6 +2,8 @@ import 'package:event_management/utils/app_icons/app_icons.dart';
 import 'package:event_management/utils/app_images/app_images.dart';
 import 'package:event_management/view/components/custom_nav_bar/dm_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../../../../core/app_routes/app_routes.dart';
 import '../../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../components/custom_gradient/custom_gradient.dart';
 import '../../../../../components/custom_images/custom_images.dart';
@@ -97,17 +99,28 @@ class ProfileScreen extends StatelessWidget {
                     // Get.toNamed(AppRoutes.paymentScreen);
                   },
                   child: CustomText(
-                    text: 'Add Payment Method',
+                    text: 'Tickets',
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 TextButton(
                   onPressed: () {
-                    // Get.toNamed(AppRoutes.privacyScreen);
+                     Get.toNamed(AppRoutes.ticketsHistory);
                   },
                   child: CustomText(
-                    text: 'Privacy Policy',
+                    text: 'Ticket History',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              //Event History
+                TextButton(
+                  onPressed: () {
+                     Get.toNamed(AppRoutes.eventHistory);
+                  },
+                  child: CustomText(
+                    text: 'Event History',
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
@@ -151,6 +164,18 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+
+                TextButton(
+                  onPressed: () {
+                    // Get.toNamed(AppRoutes.privacyScreen);
+                  },
+                  child: CustomText(
+                    text: 'Privacy Policy',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
                 TextButton(
                   onPressed: () {
                     // Get.toNamed(AppRoutes.termsConditionScreen);
@@ -189,14 +214,7 @@ class ProfileScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: CustomText(
-                    text: 'Following',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+
                 TextButton(
                   onPressed: () {},
                   child: CustomText(

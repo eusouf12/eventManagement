@@ -1,14 +1,14 @@
 import 'package:event_management/view/screen/dmOver/favorite/view/favourite_screen/favourite_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/dm_home_screen/dm_home_screen.dart';
-import 'package:event_management/view/screen/dmOver/message/view/message_screen/messege_screen.dart';
 import 'package:event_management/view/screen/dmOver/profile/view/profile_screen/profile_screen.dart';
-import 'package:event_management/view/screen/dmOver/social/view/social_media/social_media_screen.dart';
+import 'package:event_management/view/screen/dmOver/social/social_screen/social_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../utils/app_colors/app_colors.dart';
 import '../../../utils/app_icons/app_icons.dart';
+import '../../screen/dmOver/message/message_screen/message_screen.dart';
 
 class DmNavBar extends StatefulWidget {
   final int currentIndex;
@@ -108,7 +108,7 @@ class _DmNavBarState extends State<DmNavBar> {
           Get.offAll(() => MessageScreen());
           break;
         case 3:
-          Get.offAll(() => SocialMediaScreen());
+          Get.offAll(() => SocialScreen());
           break;
         case 4:
           Get.to(() => ProfileScreen());

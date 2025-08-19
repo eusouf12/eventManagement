@@ -116,13 +116,7 @@ class _CustomLiveEventCardState extends State<CustomLiveEventCard> {
                         fontSize: 14,
                         color: AppColors.black2,
                       ),
-                      Spacer(),
-                      CustomImage(
-                        imageSrc: AppIcons.pen,
-                        imageColor: AppColors.black2,
-                        height: 20.h,
-                        width: 20.w,
-                      ),
+
                     ],
                   ),
                 ],

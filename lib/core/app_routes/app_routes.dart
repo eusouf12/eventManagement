@@ -13,17 +13,21 @@ import 'package:event_management/view/screen/dmOver/home_screen/view/nearby_rest
 import 'package:event_management/view/screen/dmOver/home_screen/view/notification_screen/notification_screen.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/qr_confirm/qr_confirm.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/view/venue_facility/venue_facility.dart';
-import 'package:event_management/view/screen/dmOver/message/view/message_screen/messege_screen.dart';
-import 'package:event_management/view/screen/dmOver/social/view/social_media/social_media_screen.dart';
 import 'package:event_management/view/screen/host/home_screen/view/host_home_screen.dart';
-import 'package:event_management/view/screen/profile_role/profile_role_screen.dart';
 import 'package:get/get.dart';
 import '../../view/screen/dmOver/favorite/view/favourite_screen/favourite_screen.dart';
 import '../../view/screen/dmOver/favorite/view/gellery_screen/gallery_screen.dart';
 import '../../view/screen/dmOver/favorite/view/update_screen/update_screen.dart';
 import '../../view/screen/dmOver/home_screen/view/bar_details_page/bar_details_page.dart';
+import '../../view/screen/dmOver/home_screen/view/create_story_screen/create_story_screen.dart';
 import '../../view/screen/dmOver/home_screen/view/createpostscreen/create_post_screen.dart';
 import '../../view/screen/dmOver/home_screen/view/restaurant_details_page/restaurant_details_page.dart';
+import '../../view/screen/dmOver/message/message_screen/message_screen.dart';
+import '../../view/screen/dmOver/profile/view/event_history/event_history.dart';
+import '../../view/screen/dmOver/profile/view/tickets_history/tickets_history.dart';
+import '../../view/screen/dmOver/profile/widget/custom_event_history_card/custom_event_history_card.dart';
+import '../../view/screen/dmOver/social/social_screen/social_screen.dart';
+import '../../view/screen/profile_role/profile_role_screen.dart';
 
 class AppRoutes {
   static const String profileRoleScreen = '/profileRoleScreen';
@@ -52,15 +56,20 @@ class AppRoutes {
   static const String galleryScreen = '/galleryScreen';
   static const String updateScreen = '/updateScreen';
   static const String createPostScreen = '/createPostScreen';
+  static const String createStoryScreen = '/createStoryScreen';
+  static const String chooseRoleScreen = '/chooseRoleScreen';
+  static const String ticketsHistory = '/ticketsHistory';
+  static const String eventHistory = '/eventHistory';
 
 
   static List<GetPage> routes = [
-    GetPage(name: profileRoleScreen, page: () => ProfileRoleScreen()),
+    // GetPage(name: profileRoleScreen, page: () => ProfileRoleScreen()),
+    GetPage(name: chooseRoleScreen, page: () => ChooseRoleScreen()),
     GetPage(name: dmHomeScreen, page: () => DmHomeScreen()),
     GetPage(name: hostHomeScreen, page: () => HostHomeScreen()),
     GetPage(name: favouriteScreen, page: () => FavouriteScreen()),
     GetPage(name: messageScreen, page: () => MessageScreen()),
-    GetPage(name: socialScreen, page: () => SocialMediaScreen()),
+    GetPage(name: socialScreen, page: () => SocialScreen()),
     GetPage(name: profileScreen, page: () => HostHomeScreen()),
     GetPage(name: notificationScreen, page: () => NotificationScreen()),
     GetPage(name: dmLiveScreen, page: () => DmLiveEvent()),
@@ -81,5 +90,8 @@ class AppRoutes {
     GetPage(name: galleryScreen, page: () => GalleryScreen()),
     GetPage(name: updateScreen, page: () => UpdateScreen()),
     GetPage(name: createPostScreen, page: () => CreatePostScreen()),
+    GetPage(name: createStoryScreen, page: () => CreateStoryScreen()),
+    GetPage(name: ticketsHistory, page: () => TicketsHistory()),
+    GetPage(name: eventHistory, page: () => EventHistory()),
   ];
 }

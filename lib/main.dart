@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         defaultTransition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 200),
-        initialRoute: AppRoutes.profileRoleScreen,
+        initialRoute: AppRoutes.chooseRoleScreen,
         navigatorKey: Get.key,
         getPages: AppRoutes.routes,
       ),
