@@ -185,7 +185,7 @@ class _PersonProfileScreenState extends State<PersonProfileScreen> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
-                    children: List.generate(5, (index){
+                    children: List.generate(3, (index){
                       return CustomLiveDetails();
                     }),
                   ),
