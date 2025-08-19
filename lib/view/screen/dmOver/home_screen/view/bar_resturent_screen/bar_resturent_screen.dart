@@ -138,12 +138,12 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
 
                   // Floating container
                   Positioned(
-                    top: 260,
+                    top: 190,
                     left: 0,
                     right: 0,
                     child: Container(
-                      padding: const EdgeInsets.only(left: 20, top: 17, bottom: 19),
-                      height: 320.h,
+                      padding: const EdgeInsets.only(left: 0, top: 17, bottom: 19),
+                      height: 310.h,
                       decoration: BoxDecoration(
                         color: AppColors.blue3,
                         borderRadius: BorderRadius.circular(30),
@@ -152,7 +152,7 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(right: 24, bottom: 9),
+                            padding: const EdgeInsets.only(left:24,right: 24, bottom: 9),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [

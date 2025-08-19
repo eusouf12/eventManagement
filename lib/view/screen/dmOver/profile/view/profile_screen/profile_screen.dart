@@ -1,6 +1,7 @@
 import 'package:event_management/utils/app_icons/app_icons.dart';
 import 'package:event_management/utils/app_images/app_images.dart';
 import 'package:event_management/view/components/custom_nav_bar/dm_navbar.dart';
+import 'package:event_management/view/screen/dmOver/social/social_screen/person_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../core/app_routes/app_routes.dart';
@@ -96,7 +97,10 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    // Get.toNamed(AppRoutes.paymentScreen);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PersonProfileScreen()),
+                    );
                   },
                   child: CustomText(
                     text: 'Tickets',
