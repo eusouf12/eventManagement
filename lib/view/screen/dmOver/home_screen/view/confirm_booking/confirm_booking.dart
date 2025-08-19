@@ -21,29 +21,29 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
   @override
   Widget build(BuildContext context) {
     return CustomGradient(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: CustomAppbar(
-            title: "Confirm Booking",
-          ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: CustomAppbar(
+          title: "Confirm Booking",
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
 
-                SizedBox(height: 20),
+              SizedBox(height: 50),
 
-                // Column(
-                //   children: List.generate(5, (index) {
-                //     return CustomBookingCard(
-                //       subtitle: "Experience the best urban music",
-                //       title: "May 28, 2025 – 6:00 PM",
-                //     );
-                //   }
-                //   ),
-                // ),
-                Column(
+              // Column(
+              //   children: List.generate(5, (index) {
+              //     return CustomBookingCard(
+              //       subtitle: "Experience the best urban music",
+              //       title: "May 28, 2025 – 6:00 PM",
+              //     );
+              //   }
+              //   ),
+              // ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
                   children: [
                     // song+date+location
                     Column(
@@ -174,8 +174,8 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                     PaymentMethoodCard(),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

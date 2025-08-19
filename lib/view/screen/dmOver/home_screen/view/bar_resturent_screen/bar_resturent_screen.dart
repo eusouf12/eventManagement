@@ -10,6 +10,7 @@ import 'package:event_management/view/components/custom_text/custom_text.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_2nd_hintext_field/custom_2nd_hintext_field.dart';
 import 'package:event_management/view/screen/dmOver/home_screen/widget/custom_bar_card/custom_bar_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class BarResturentScreen extends StatefulWidget {
@@ -68,9 +69,9 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          selectedTab = 2; // ✅ mark Others as selected
+          selectedTab = 2;
         });
-        _focusSearchBox(); // focus search box
+        _focusSearchBox();
       },
       child: Container(
         decoration: BoxDecoration(
@@ -142,7 +143,7 @@ class _BarResturentScreenState extends State<BarResturentScreen> {
                     right: 0,
                     child: Container(
                       padding: const EdgeInsets.only(left: 20, top: 17, bottom: 19),
-                      height: 310,
+                      height: 320.h,
                       decoration: BoxDecoration(
                         color: AppColors.blue3,
                         borderRadius: BorderRadius.circular(30),

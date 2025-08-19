@@ -29,6 +29,7 @@ class _EventHistoryState extends State<EventHistory> {
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),
+              SizedBox(height: 10,),
               Column(
                 children:List.generate(2,(index){
                   return Column(

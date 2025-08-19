@@ -45,7 +45,7 @@ class CustomCheckBox extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(top: 0.0.h),
                           child: CustomImage(
-                            imageSrc: isDone! ? AppIcons. eye: AppIcons.eyeOff,
+                            imageSrc: isDone! ? AppIcons. eyeon: AppIcons.eyeOff,
                             imageType: ImageType.png,
                           ),
                         ),
