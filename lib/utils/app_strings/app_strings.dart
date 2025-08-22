@@ -46,6 +46,7 @@ class   AppStrings {
   static const String writeCaption = "Write a caption";
   static const String whatOnYourMind = "What’s on your mind";
   static const String search = "Search";
+  static const String search3 = "Search";
 
 ///============================ Common Auth =========================//
 
