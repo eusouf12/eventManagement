@@ -1,11 +1,11 @@
 class   AppStrings {
   static RegExp passRegexp = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.{8,}$)');
   static RegExp emailRegexp = RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+      r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   static const String fieldCantBeEmpty = "Field can't be empty";
   static const String emailFieldCantBeEmpty = "Please enter your email";
   static const String passwordFieldCantBeEmpty = "Please enter your password";
-  static const String checknetworkconnection = "Check network connection";
+  static const String checkNetworkConnection = "Check network connection";
   static const String enterThe8Character = "Please Enter The 8 character";
   static const String passwordNotMatch = "Passwords do not match";
 
@@ -25,7 +25,7 @@ class   AppStrings {
   static const String forgetPassword = "Forget Password?";
   static const String signInWithGoogle = "Sign in with Google";
   static const String login = "Login";
-  static const String dontHaveAccount = "Don’t have an account? ";
+  static const String donTHaveAccount = "Don’t have an account? ";
   static const String alreadyHaveAccount = "Already have an account? ";
   static const String signUp = "Sign up";
   static const String createYourAccount = "Create your account by email";
@@ -35,7 +35,7 @@ class   AppStrings {
   static const String chooseYourRoleTitle = "What type of account you want?\nWho are you? Select an option\nto continue";
 
 
-  ///============================ Commom Auth =========================//
+  ///============================ Common Auth =========================//
   static const String report = "Report";
   static const String person = "Person";
   static const String createEvent = "Create Event";
@@ -47,9 +47,10 @@ class   AppStrings {
   static const String whatOnYourMind = "What’s on your mind";
   static const String search = "Search";
 
-///============================ Commom Auth =========================//
+///============================ Common Auth =========================//
 
   static const String  findBest= 'Find Best Events\nNear You';
+  static const String  nonEvents= 'Non-Events';
 
 
 
