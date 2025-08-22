@@ -2,6 +2,7 @@ import 'package:event_management/core/app_routes/app_routes.dart';
 import 'package:event_management/utils/app_colors/app_colors.dart';
 import 'package:event_management/utils/app_icons/app_icons.dart';
 import 'package:event_management/utils/app_images/app_images.dart';
+import 'package:event_management/utils/app_strings/app_strings.dart';
 import 'package:event_management/view/components/custom_gradient/custom_gradient.dart';
 import 'package:event_management/view/components/custom_images/custom_images.dart';
 import 'package:event_management/view/components/custom_nav_bar/dm_navbar.dart';
@@ -85,7 +86,7 @@ class _DmHomeScreenState extends State<DmHomeScreen> {
             children: [
               // Find Best Events
               CustomText(
-                text: 'Find Best Events\nNear You',
+                text: AppStrings.findBest,
                 textAlign: TextAlign.left,
                 fontSize: 24,
                 fontWeight: FontWeight.w600,

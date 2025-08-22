@@ -30,6 +30,7 @@ class   AppStrings {
   static const String signUp = "Sign up";
   static const String createYourAccount = "Create your account by email";
   static const String continueText = "Continue";
+  static const String continueTextBan = "Continue";
   static const String chooseYourRole = "Choose Your Role";
   static const String chooseYourRoleTitle = "What type of account you want?\nWho are you? Select an option\nto continue";
 
@@ -45,6 +46,10 @@ class   AppStrings {
   static const String writeCaption = "Write a caption";
   static const String whatOnYourMind = "What’s on your mind";
   static const String search = "Search";
+
+///============================ Commom Auth =========================//
+
+  static const String  findBest= 'Find Best Events\nNear You';
 
 
 
