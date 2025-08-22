@@ -50,6 +50,7 @@ class   AppStrings {
 ///============================ Commom Auth =========================//
 
   static const String  findBest= 'Find Best Events\nNear You';
+  static const String  nonEvents= 'Non-Events';
 
 
 
